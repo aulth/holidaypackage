@@ -23,7 +23,7 @@ const Date = ({content}) => {
                     <p className="font-semibold text-sm -mt-0.5">{content.finish}</p>
                 </div>
             </div>
-            <Button variant='contained' color='error' className='rounded-full bg-red-500'>Enquiry</Button>
+            <Button variant='contained' style={{borderRadius:9999, background:'rgb(239 68 68)'}} color='error' className='rounded-full bg-red-500'>Enquiry</Button>
         </div>
     )
 }

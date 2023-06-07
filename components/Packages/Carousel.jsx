@@ -132,8 +132,8 @@ const Carousel = ({ content }) => {
                         <div className="flex gap-2 my-2 items-center">
                             <h3 className="" style={{ textShadow: '2px 2px 4px rgba(0, 0, 0, 0.5)' }}>({content.duration})</h3>
                             <div className="flex items-center gap-2">
-                                <Button size='small' disabled color='error' variant='contained' style={{ color: 'red', background:'white' }} className=' font-semibold bg-white   px-2 py-1'>AED {content.price.adultSingle}</Button>
-                                <Button  size='small' variant='contained' color='error' className=' font-semibold bg-red-600 text-white px-2 py-1'>Enquiry</Button>
+                                <Button size='small' disabled color='error' variant='contained' style={{ color: 'red', background:'white', fontWeight:'bold' }} className=' font-semibold bg-white   px-2 py-1'>AED {content.price.adultSingle}</Button>
+                                <Button  size='small' variant='contained' color='error' style={{fontWeight:'bold' }} className=' font-semibold bg-red-600 text-white px-2 py-1'>Enquiry</Button>
                             </div>
                         </div>
                         <div className="flex gap-2 my-0 items-center">

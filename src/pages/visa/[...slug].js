@@ -103,12 +103,12 @@ const page = ({ data, allVisa, isBooking }) => {
                         <div className="container mx-auto flex flex-col justify-center items-center ">
                             <div className="w-full px-6 py-2 md:hidden flex justify-between bg-red-500 text-white items-center">
                                 <h3 className="font-bold ">{tourDetailHeadline}</h3>
-                                <IconButton onClick={toggleMenu} id="open-menu" aria-label="tour-details" className='text-white' color="error">
-                                    <MenuOutlinedIcon />
-                                </IconButton>
-                                <IconButton onClick={toggleMenu} id="close-menu" aria-label="tour-details" className='text-white hidden' color="error">
-                                    <CloseOutlinedIcon />
-                                </IconButton>
+                                <button id="open-menu" onClick={toggleMenu} className='text-white' color="error">
+                                        <MenuOutlinedIcon />
+                                </button>
+                                <button onClick={toggleMenu} id="close-menu" aria-label="tour-details" className='text-white hidden' color="error">
+                                        <CloseOutlinedIcon />
+                                </button>
                             </div>
                             <ul id="tour-details" className="flex md:h-auto  md:flex-row h-0 duration-100 overflow-y-hidden md:w-auto w-full flex-col items-start  text-white ">
                                 <li id='overview-btn' className='  details-btn hover:bg-white hover:text-black px-6 py-3 md:w-auto w-full'><a href="#overview">Overview</a></li>
