@@ -112,7 +112,7 @@ const Carousel = ({ content }) => {
                 className="mySwiper mt-[60px]"
             >
                 <div className="container mx-auto">
-                    <Breadcrumbs aria-label="breadcrumb" className='absolute z-20  top-0 mt-8 ml-8 breadcrumb'>
+                    <Breadcrumbs aria-label="breadcrumb" className='absolute z-20  top-4 left-4 mt-8 ml-8 breadcrumb'>
                         <StyledBreadcrumb
                             component="a"
                             href="/"
