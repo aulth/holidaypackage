@@ -1,0 +1,191 @@
+[
+    {
+        "id":"001",
+        "title":"Armenia Holiday Package 1",
+        "link":"armenia-holiday-package-1",
+        "gallery":["https://source.unsplash.com/random/?armenia/", "https://source.unsplash.com/random/?mountain/", "https://source.unsplash.com/random/?hillstation/"],
+        "duration": "3 Nights / 4 Days",
+        "highlights":["Pocket Friendly", "Couples Romance", "Family", "Outdoor", "Relaxation", "Shopping"],
+        "overview":"<p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Eius voluptas repudiandae error eum maxime tempora in repellendus ex blanditiis, voluptatibus enim nihil molestiae, eligendi, aliquam unde neque dicta tempore itaque.</p>",
+        "itinerary":[
+            {
+                "highlight":"Day 1",
+                "title":"Arrival in Yerevan / Yerevan City Tour",
+                "description":"<ul> <li>Arrive at destination</li> <li>Check-in at the hotel</li> <li>Explore local attractions</li> <li>Dinner at a local restaurant</li> </ul>"
+            },
+            {
+                "highlight":"Day 2",
+                "title":"Yerevan / Tsaghkadzor / Lake Sevan / Yerevan",
+                "description":"After breakfast departure to the resort town of Tsaghkadzor (Gorge of Flowers) – town of forested mountains. Walking tour around the city. Opportunity to ride up the ropeway which will take you to the peak of mount Teghenis mount from where opens breathtaking view to the forested town. The road will take us to Lake Sevan which is going to be one of the highlights if your trip. Climb the stairs up on the peninsula from where opens a fascinating view to the “blue-eyed” lake. Sightseeing tour on the peninsula. Lake Sevan is considered to be one of the largest sweet lakes in the world at an altitude of 1897 meters above sea level. Departure back to the capital. Overnight at the hotel in Yerevan. Meals: breakfast"
+            },
+            {
+                "highlight":"Day 3",
+                "title":"Transfer to Airport",
+                "description":"• Breakfast at the hotel (depends on departure time).Time to share contacts, sharing moments. Post your favorite memories on social media. Check out from the hotel and Transfer to airport (30-minute drive). Let's travel back to Airport with beautiful amazing memories."
+            }
+        ],
+        "itineraryLink":"/itinerary.pdf",
+        "inclusions":["3 Night at 3*/4*   hotel in Tbilisi - based on  Twin occupancy", "Daily Buffet Breakfast", "Private Transfer per itinerary excluding the free time by Sedan/Minivan car"],
+        "exclusions":["Flights", "Visa Fees paid by guest (Either at the Embassy or E-visa) ", "Any meals in the aircraft"],
+        "flights":{
+            "depart": {
+                "flight":"Qatar Airways (QR3352)",
+                "logo":"https://seeklogo.com/images/Q/qatar-airways-logo-E096F45AE3-seeklogo.com.png",
+                "fromCode":"ISB",
+                "from":"Indira Gandhi International Airport",
+                "toCode":"JED",
+                "to":"King Abdul Aziz International Airport",
+                "depart":"Wednesday June 28 2023 11:00",
+                "arrive":"Wednesday June 28 2023 14:25",
+                "class":"Economy"
+            },
+            "return": {
+                "flight":"Qatar Airways (QR3352)",
+                "logo":"https://seeklogo.com/images/Q/qatar-airways-logo-E096F45AE3-seeklogo.com.png",
+                "fromCode":"ISB",
+                "from":"Indira Gandhi International Airport",
+                "toCode":"JED",
+                "to":"King Abdul Aziz International Airport",
+                "depart":"Wednesday June 28 2023 11:00",
+                "arrive":"Wednesday June 28 2023 14:25",
+                "class":"Economy"
+            }
+        },
+        "start":"Wednesday 28 Jun 2023",
+        "finish":"Sunday 02 Jul 2023",
+        "price":{
+            "adultSingle":100,
+            "adultDouble":50,
+            "adultTriple":20,
+            "child":10,
+            "infant":10
+        },
+        "termConditions":"<p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Eius voluptas repudiandae error eum maxime tempora in repellendus ex blanditiis, voluptatibus enim nihil molestiae, eligendi, aliquam unde neque dicta tempore itaque.</p>"
+    },
+    {
+        "id":"002",
+        "title":"Armenia Holiday Package 2",
+        "link":"armenia-holiday-package-2",
+        "gallery":["https://source.unsplash.com/random/?armenia/", "https://source.unsplash.com/random/?mountain/", "https://source.unsplash.com/random/?hillstation/"],
+        "duration": "3 Nights / 4 Days",
+        "highlights":["Pocket Friendly", "Couples Romance", "Family", "Outdoor", "Relaxation", "Shopping"],
+        "overview":"<p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Eius voluptas repudiandae error eum maxime tempora in repellendus ex blanditiis, voluptatibus enim nihil molestiae, eligendi, aliquam unde neque dicta tempore itaque.</p>",
+        "itinerary":[
+            {
+                "highlight":"Day 1",
+                "title":"Arrival in Yerevan / Yerevan City Tour",
+                "description":"<ul> <li>Arrive at destination</li> <li>Check-in at the hotel</li> <li>Explore local attractions</li> <li>Dinner at a local restaurant</li> </ul>"
+            },
+            {
+                "highlight":"Day 2",
+                "title":"Yerevan / Tsaghkadzor / Lake Sevan / Yerevan",
+                "description":"After breakfast departure to the resort town of Tsaghkadzor (Gorge of Flowers) – town of forested mountains. Walking tour around the city. Opportunity to ride up the ropeway which will take you to the peak of mount Teghenis mount from where opens breathtaking view to the forested town. The road will take us to Lake Sevan which is going to be one of the highlights if your trip. Climb the stairs up on the peninsula from where opens a fascinating view to the “blue-eyed” lake. Sightseeing tour on the peninsula. Lake Sevan is considered to be one of the largest sweet lakes in the world at an altitude of 1897 meters above sea level. Departure back to the capital. Overnight at the hotel in Yerevan. Meals: breakfast"
+            },
+            {
+                "highlight":"Day 3",
+                "title":"Transfer to Airport",
+                "description":"• Breakfast at the hotel (depends on departure time).Time to share contacts, sharing moments. Post your favorite memories on social media. Check out from the hotel and Transfer to airport (30-minute drive). Let's travel back to Airport with beautiful amazing memories."
+            }
+        ],
+        "itineraryLink":"/itinerary.pdf",
+        "inclusions":["3 Night at 3*/4*   hotel in Tbilisi - based on  Twin occupancy", "Daily Buffet Breakfast", "Private Transfer per itinerary excluding the free time by Sedan/Minivan car"],
+        "exclusions":["Flights", "Visa Fees paid by guest (Either at the Embassy or E-visa) ", "Any meals in the aircraft"],
+        "flights":{
+            "depart": {
+                "flight":"Qatar Airways (QR3352)",
+                "logo":"https://seeklogo.com/images/Q/qatar-airways-logo-E096F45AE3-seeklogo.com.png",
+                "fromCode":"ISB",
+                "from":"Indira Gandhi International Airport",
+                "toCode":"JED",
+                "to":"King Abdul Aziz International Airport",
+                "depart":"Wednesday June 28 2023 11:00",
+                "arrive":"Wednesday June 28 2023 14:25",
+                "class":"Economy"
+            },
+            "return": {
+                "flight":"Qatar Airways (QR3352)",
+                "logo":"https://seeklogo.com/images/Q/qatar-airways-logo-E096F45AE3-seeklogo.com.png",
+                "fromCode":"ISB",
+                "from":"Indira Gandhi International Airport",
+                "toCode":"JED",
+                "to":"King Abdul Aziz International Airport",
+                "depart":"Wednesday June 28 2023 11:00",
+                "arrive":"Wednesday June 28 2023 14:25",
+                "class":"Economy"
+            }
+        },
+        "start":"Wednesday 28 Jun 2023",
+        "finish":"Sunday 02 Jul 2023",
+        "price":{
+            "adultSingle":100,
+            "adultDouble":50,
+            "adultTriple":20,
+            "child":10,
+            "infant":10
+        },
+        "termConditions":"<p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Eius voluptas repudiandae error eum maxime tempora in repellendus ex blanditiis, voluptatibus enim nihil molestiae, eligendi, aliquam unde neque dicta tempore itaque.</p>"
+    },
+    {
+        "id":"003",
+        "title":"Armenia Holiday Package 3",
+        "link":"armenia-holiday-package-3",
+        "gallery":["https://source.unsplash.com/random/?armenia/", "https://source.unsplash.com/random/?mountain/", "https://source.unsplash.com/random/?hillstation/"],
+        "duration": "3 Nights / 4 Days",
+        "highlights":["Pocket Friendly", "Couples Romance", "Family", "Outdoor", "Relaxation", "Shopping"],
+        "overview":"<p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Eius voluptas repudiandae error eum maxime tempora in repellendus ex blanditiis, voluptatibus enim nihil molestiae, eligendi, aliquam unde neque dicta tempore itaque.</p>",
+        "itinerary":[
+            {
+                "highlight":"Day 1",
+                "title":"Arrival in Yerevan / Yerevan City Tour",
+                "description":"<ul> <li>Arrive at destination</li> <li>Check-in at the hotel</li> <li>Explore local attractions</li> <li>Dinner at a local restaurant</li> </ul>"
+            },
+            {
+                "highlight":"Day 2",
+                "title":"Yerevan / Tsaghkadzor / Lake Sevan / Yerevan",
+                "description":"After breakfast departure to the resort town of Tsaghkadzor (Gorge of Flowers) – town of forested mountains. Walking tour around the city. Opportunity to ride up the ropeway which will take you to the peak of mount Teghenis mount from where opens breathtaking view to the forested town. The road will take us to Lake Sevan which is going to be one of the highlights if your trip. Climb the stairs up on the peninsula from where opens a fascinating view to the “blue-eyed” lake. Sightseeing tour on the peninsula. Lake Sevan is considered to be one of the largest sweet lakes in the world at an altitude of 1897 meters above sea level. Departure back to the capital. Overnight at the hotel in Yerevan. Meals: breakfast"
+            },
+            {
+                "highlight":"Day 3",
+                "title":"Transfer to Airport",
+                "description":"• Breakfast at the hotel (depends on departure time).Time to share contacts, sharing moments. Post your favorite memories on social media. Check out from the hotel and Transfer to airport (30-minute drive). Let's travel back to Airport with beautiful amazing memories."
+            }
+        ],
+        "itineraryLink":"/itinerary.pdf",
+        "inclusions":["3 Night at 3*/4*   hotel in Tbilisi - based on  Twin occupancy", "Daily Buffet Breakfast", "Private Transfer per itinerary excluding the free time by Sedan/Minivan car"],
+        "exclusions":["Flights", "Visa Fees paid by guest (Either at the Embassy or E-visa) ", "Any meals in the aircraft"],
+        "flights":{
+            "depart": {
+                "flight":"Qatar Airways (QR3352)",
+                "logo":"https://seeklogo.com/images/Q/qatar-airways-logo-E096F45AE3-seeklogo.com.png",
+                "fromCode":"ISB",
+                "from":"Indira Gandhi International Airport",
+                "toCode":"JED",
+                "to":"King Abdul Aziz International Airport",
+                "depart":"Wednesday June 28 2023 11:00",
+                "arrive":"Wednesday June 28 2023 14:25",
+                "class":"Economy"
+            },
+            "return": {
+                "flight":"Qatar Airways (QR3352)",
+                "logo":"https://seeklogo.com/images/Q/qatar-airways-logo-E096F45AE3-seeklogo.com.png",
+                "fromCode":"ISB",
+                "from":"Indira Gandhi International Airport",
+                "toCode":"JED",
+                "to":"King Abdul Aziz International Airport",
+                "depart":"Wednesday June 28 2023 11:00",
+                "arrive":"Wednesday June 28 2023 14:25",
+                "class":"Economy"
+            }
+        },
+        "start":"Wednesday 28 Jun 2023",
+        "finish":"Sunday 02 Jul 2023",
+        "price":{
+            "adultSingle":100,
+            "adultDouble":50,
+            "adultTriple":20,
+            "child":10,
+            "infant":10
+        },
+        "termConditions":"<p>Eius voluptas repudiandae error eum maxime tempora in repellendus ex blanditiis, voluptatibus enim nihil molestiae, eligendi, aliquam unde neque dicta tempore itaque.</p>"
+    }
+]

@@ -1,0 +1,13 @@
+[
+    {
+        "id":"001",
+        "title":"UAE Visa",
+        "link":"uae-visa",
+        "gallery":["https://source.unsplash.com/random/?armenia/", "https://source.unsplash.com/random/?mountain/", "https://source.unsplash.com/random/?hillstation/"],
+        "overview":"<p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Eius voluptas repudiandae error eum maxime tempora in repellendus ex blanditiis, voluptatibus enim nihil molestiae, eligendi, aliquam unde neque dicta tempore itaque.</p>",
+        "inclusions":["3 Night at 3*/4*   hotel in Tbilisi - based on  Twin occupancy", "Daily Buffet Breakfast", "Private Transfer per itinerary excluding the free time by Sedan/Minivan car"],
+        "exclusions":["Flights", "Visa Fees paid by guest (Either at the Embassy or E-visa) ", "Any meals in the aircraft"],
+        "price":100,
+        "termConditions":"<p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Eius voluptas repudiandae error eum maxime tempora in repellendus ex blanditiis, voluptatibus enim nihil molestiae, eligendi, aliquam unde neque dicta tempore itaque.</p>"
+    }
+]
