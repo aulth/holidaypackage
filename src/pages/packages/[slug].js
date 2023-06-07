@@ -140,6 +140,7 @@ const page = ({ data, allPackages }) => {
                             {/* overview  */}
                             <h2 id='overview' className="text-2xl scroll-mt-[120px] font-bold text-red-600 uppercase">Overview</h2>
                             {/* Itinerary  */}
+                            <Overview content={data} />
                             <div id='itinerary' className="w-full  scroll-mt-[120px]  flex flex-col z-10">
                                 <h2 className="text-xl font-bold text-red-600 uppercase my-2">Itinerary</h2>
                                 <Itinerary content={data} />
