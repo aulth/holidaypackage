@@ -112,7 +112,7 @@ const Carousel = ({ content }) => {
                 className="mySwiper mt-[60px]"
             >
                 <div className="container mx-auto">
-                    <Breadcrumbs aria-label="breadcrumb" className='absolute z-20  top-0 mt-4 ml-4 breadcrumb'>
+                    <Breadcrumbs aria-label="breadcrumb" className='absolute z-20  top-4 left-4 mt-4 ml-4 breadcrumb'>
                         <StyledBreadcrumb
                             component="a"
                             href="/"
@@ -129,18 +129,18 @@ const Carousel = ({ content }) => {
                 <div className="container mx-auto relative">
                     <div className="flex  z-20 flex-col absolute bottom-0 left-0 mb-8 ml-8 text-white">
                         <h2 className='text-3xl font-bold' style={{ textShadow: '2px 2px 4px rgba(0, 0, 0, 0.5)' }}>{content.title}</h2>
-                        <div className="flex gap-2 my-4 items-center">
+                        <div className="flex gap-2 my-2 items-center">
                             <h3 className="" style={{ textShadow: '2px 2px 4px rgba(0, 0, 0, 0.5)' }}>({content.duration})</h3>
                             <div className="flex items-center gap-2">
-                                <Button disabled color='error' style={{ color: 'red' }} className=' font-semibold bg-white   px-2 py-1'>AED {content.price.adultSingle}</Button>
-                                <Button variant='contained' color='error' className=' font-semibold bg-red-600 text-white px-2 py-1'>Enquiry</Button>
+                                <Button size='small' disabled color='error' variant='contained' style={{ color: 'red', background:'white' }} className=' font-semibold bg-white   px-2 py-1'>AED {content.price.adultSingle}</Button>
+                                <Button  size='small' variant='contained' color='error' className=' font-semibold bg-red-600 text-white px-2 py-1'>Enquiry</Button>
                             </div>
                         </div>
-                        <div className="flex gap-2 my-2 items-center">
+                        <div className="flex gap-2 my-0 items-center">
                             <div className="flex items-center gap-2">
-                                <Button variant='outlined' startIcon={<FileDownloadOutlinedIcon />} className=' font-semibold border-white text-white px-2 py-1'><a href={content.itineraryLink}>Download Itinerary</a></Button>
-                                <Button onClick={handleOpen} variant='outlined' startIcon={<ForwardToInboxOutlinedIcon />} color='error' className=' border-white  font-semibold  text-white px-2 py-1'>E-mail</Button>
-                                <Button onClick={handleOnShare} variant='outlined' startIcon={<ShareIcon />} color='error' className=' border-white  font-semibold  text-white px-2 py-1'>Share</Button>
+                                {/* <Button variant='outlined' startIcon={<FileDownloadOutlinedIcon />} className=' font-semibold border-white text-white px-2 py-1'><a href={content.itineraryLink}>Download Itinerary</a></Button> */}
+                                <Button style={{color:'white', borderColor:'white'}} onClick={handleOpen} variant='outlined' startIcon={<ForwardToInboxOutlinedIcon />}  className=' border-white  font-semibold  text-white px-2 py-1'>E-mail</Button>
+                                <Button onClick={handleOnShare} variant='outlined' startIcon={<ShareIcon />} style={{color:'white', borderColor:'white'}} className=' border-white  font-semibold  text-white px-2 py-1'>Share</Button>
                             </div>
                         </div>
                     </div>
