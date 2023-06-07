@@ -9,6 +9,7 @@ const add = async (req, res) => {
         }
         console.log(req.body)
         const {adminPin} = req.body;
+        console.log(req.body)
         if(adminPin!=process.env.NEXT_ADMIN_PIN){
             return res.json({ success: false, msg: "Not authenticated" })
         }

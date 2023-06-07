@@ -37,7 +37,7 @@ const View = () => {
             headers: {
                 'content-type': 'application/json'
             },
-            body: JSON.stringify({ id: id, adminPin: process.env.NEXT_ADMIN_PIN })
+            body: JSON.stringify({ id: id, adminPin: process.env.NEXT_PUBLIC_ADMIN_PIN })
         })
         let json = await response.json();
         console.log(json)

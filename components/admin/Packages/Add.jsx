@@ -50,7 +50,7 @@ const Add = () => {
             headers: {
                 'content-type': 'application/json'
             },
-            body: JSON.stringify({ data, adminPin: process.env.NEXT_ADMIN_PIN })
+            body: JSON.stringify({ data, adminPin: process.env.NEXT_PUBLIC_ADMIN_PIN })
         })
         let json = await response.json();
         setLoading(false)

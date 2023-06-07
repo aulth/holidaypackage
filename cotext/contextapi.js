@@ -68,14 +68,16 @@ export default function AppStore({ children }) {
     }
   };
   const fetchAllOrders = async () => {
+    console.log(process.env.mongodburl)
     const response = await fetch('/api/booking/getall', {
       method: 'POST',
       headers: {
         'content-type': 'application/json',
       },
-      body: JSON.stringify({ 'adminPin': process.env.NEXT_ADMIN_PIN })
+      body: JSON.stringify({ adminPin: process.env.NEXT_PUBLIC_ADMIN_PIN})
     });
     let json = await response.json();
+    console.log(json)
     if (json.success) {
       console.log(json);
       setAllOrders(json.orders)

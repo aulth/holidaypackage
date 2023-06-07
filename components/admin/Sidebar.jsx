@@ -42,12 +42,12 @@ const Sidebar = ({activeTab, activeTabSecondary}) => {
                             <h2 className="font-bold">Holidays</h2>
                             <h3 className="font-semibold text-xs -mt-0.5">@admin</h3>
                         </div>
-                        <IconButton aria-label="logout" className='-mr-3 md:block hidden' color="primary">
+                        <button aria-label="logout" className='-mr-3 md:block hidden text-blue-600 text-xl'>
                             <HiOutlineLogout />
-                        </IconButton>
-                        <IconButton onClick={toggleSidebar} aria-label="close" className='md:hidden flex justify-center items-center aspect-square' color="primary">
+                        </button>
+                        <button onClick={toggleSidebar} aria-label="close" className='md:hidden flex justify-center items-center aspect-square text-blue-600 text-xl'>
                             <CloseOutlinedIcon />
-                        </IconButton>
+                        </button>
                     </div>
                 </div>
                 <List
