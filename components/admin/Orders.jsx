@@ -45,7 +45,7 @@ export default function Orders({allOrders, fetchAllOrders}) {
     const handleChange = (event, newValue) => {
         setValue(newValue);
     };
-
+    
     return (
         <div className="w-full  md:h-screen h-[calc(100vh-56px)] overflow-y-auto md:mt-0 mt-[56px] p-4 bg-[rgb(246,248,252)]">
             <Box sx={{ width: '100%' }} className="bg-white rounded">

@@ -216,7 +216,10 @@ const Booking = ({ content }) => {
                                 }
                             </TextField>
                             <TextField disabled defaultValue={data.pax == 1 && data.passportFrontPage && data.passportBackPage && data.photograph ? "Uploaded" : "Will be collected later"} label="Documents" variant="standard" />
-                            <Button disabled={proceedToPayClicked || !data.name || !data.email || !data.phone || !data.pax || !data.nationality} onClick={() => { initiateBooking(data); setProceedToPayClicked(true) }} endIcon={<CheckOutlinedIcon />} variant='contained' color='success' className="w-1/4 mx-auto col-span-2 h-12 bg-green-700 text-white">Proceed to pay</Button>
+                            <div></div>
+                            <div className="flex justify-end">
+                            <Button disabled={proceedToPayClicked || !data.name || !data.email || !data.phone || !data.pax || !data.nationality} onClick={() => { initiateBooking(data); setProceedToPayClicked(true) }} endIcon={<CheckOutlinedIcon />} variant='contained' color='success' className="h-12 bg-green-700 text-white">Proceed to pay</Button>
+                            </div>
                             {
                                 proceedToPayClicked &&
                                 <Backdrop/>
@@ -227,10 +230,12 @@ const Booking = ({ content }) => {
             </div>
             {
                 data.passportFrontPage && data.passportBackPage && data.photograph && activeStep == 1 &&
-                <Fab onClick={() => { setActiveStep(2) }} variant="extended" size="medium" color="primary" className='fixed right-5 bottom-5 bg-[#1976d2]' aria-label="add">
+                <div className="fixed right-5 bottom-5 z-20">
+                <Fab onClick={() => { setActiveStep(2) }} variant="extended" size="medium" color="primary" className='bg-[#1976d2]' aria-label="add">
                     <PaidOutlinedIcon sx={{ mr: 1 }} />
                     Complete Payment
                 </Fab>
+                </div>
             }
             <Footer />
         </>
