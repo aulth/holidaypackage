@@ -34,10 +34,10 @@ const NeedAssistance = () => {
                 <h3 className="font-bold text-xl">Need Assistance</h3>
                 <h4 className="font-semibold">Book via Phone</h4>
                 <a href="tel:+919839098390" className='font-bold text-xl'>+91 9839098309</a>
-                <Button onClick={() => { setIsCall(true); handleOpen(); setData({'isCall':true}) }} variant="outlined" startIcon={<CallIcon />} className='mt-2 bg-white text-red-500 border-white w-full focus:bg-white focus:border-white focus:text-red-600 hover:bg-white hover:border-white hover:text-red-600 '>
+                <Button  style={{ color: 'red', background:'white' }}  onClick={() => { setIsCall(true); handleOpen(); setData({'isCall':true}) }} variant="outlined" startIcon={<CallIcon />} className='mt-2 bg-white text-red-500 border-white w-full focus:bg-white focus:border-white focus:text-red-600 hover:bg-white hover:border-white hover:text-red-600 '>
                     Request a Callback
                 </Button>
-                <Button variant="outlined"  onClick={() => { setIsCall(false); handleOpen();  setData({'isCall':false})  }}  startIcon={<MailIcon />} className='mt-2 bg-white text-red-500 border-white w-full focus:bg-white focus:border-white focus:text-red-600 hover:bg-white hover:border-white hover:text-red-600'>
+                <Button   style={{ color: 'red', background:'white' }}  variant="outlined"  onClick={() => { setIsCall(false); handleOpen();  setData({'isCall':false})  }}  startIcon={<MailIcon />} className='mt-2 bg-white text-red-500 border-white w-full focus:bg-white focus:border-white focus:text-red-600 hover:bg-white hover:border-white hover:text-red-600'>
                     Send Email Request
                 </Button>
             </div>

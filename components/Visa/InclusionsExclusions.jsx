@@ -10,7 +10,7 @@ const InclusionsExclusions = ({content}) => {
                     {
                         content.inclusions.map((inclusion, index)=>{
                             return <li key={index} className="flex items-start gap-1 ">
-                            <CheckOutlinedIcon  className="font-bold mt-1 text-green-500" /><span className='text-justify'>{inclusion}</span>
+                            <CheckOutlinedIcon  className="font-bold mt-0 text-sm text-green-500" /><span className='text-justify'>{inclusion}</span>
                         </li>
                         })
                     }
