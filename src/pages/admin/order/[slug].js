@@ -149,7 +149,7 @@ export async function getServerSideProps(context) {
         headers: {
             'content-type': 'application/json',
         },
-        body: JSON.stringify({ 'adminKey': process.env.NEXT_ADMIN_NKEY, bookingNumber: slug })
+        body: JSON.stringify({ 'adminPin': process.env.NEXT_ADMIN_PIN, bookingNumber: slug })
     });
     let json = await response.json();
     if (json.success) {
