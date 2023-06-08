@@ -69,7 +69,7 @@ const View = () => {
                                         <ListItemText
                                             primary={<div className='flex justify-between items-start'><Link href={`/visa/${item.link}`}><h3 className='font-bold'>{item.title}</h3></Link><Button onClick={()=>{handleOnDelete(item._id)}} variant="contained" className="bg-red-500" size='small' startIcon={<DeleteOutlineRoundedIcon/>} color="error">Delete</Button></div>}
                                             secondary={
-                                                <React.Fragment>
+                                                <React.Fragment className="flex items-start gap-1">
                                                     <Typography
                                                         sx={{ display: 'inline' }}
                                                         component="span"
