@@ -42,7 +42,7 @@ const page = ({ data }) => {
     return (
         <>
             <div className="container mx-auto h-screen grid grid-cols-1 md:grid-cols-5">
-                <Sidebar activeTab={'package'} activeTabSecondary={'packageview'} />
+                <Sidebar activeTab={''} />
                 <div className="col-span-4 h-screen ">
                     <div className="w-full p-2 z-10 md:hidden fixed top-0 flex gap-1 items-center  bg-[rgb(246,248,252)] border-b border-gray-300">
                         <IconButton onClick={toggleSidebar} aria-label="menu" color='primary'>
