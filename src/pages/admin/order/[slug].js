@@ -19,6 +19,7 @@ import MenuRoundedIcon from '@mui/icons-material/MenuRounded';
 import Orders from '../../../../components/admin/Orders';
 import { useUserContext } from '../../../../cotext/contextapi';
 import OrderDetails from '../../../../components/admin/OrderDetails';
+import Sidebar from '../../../../components/admin/Sidebar';
 const page = ({ data }) => {
     const [packageOpen, setPackageOpen] = useState(true)
     const [visaOpen, setVisaOpen] = useState(true);
@@ -41,87 +42,14 @@ const page = ({ data }) => {
     return (
         <>
             <div className="container mx-auto h-screen grid grid-cols-1 md:grid-cols-5">
-                <div id="sidebar" className="h-screen bg-[rgb(246,248,252)] z-20  duration-150 -left-full p-2 md:w-full w-[300px] md:static fixed  border-r">
-                    <div className="flex gap-2 items-center">
-                        <div className="flex justify-between w-full p-2">
-                            <div>
-                                <h2 className="font-bold">Holidays</h2>
-                                <h3 className="font-semibold text-xs -mt-0.5">@admin</h3>
-                            </div>
-                            <IconButton aria-label="logout" className='-mr-3 md:block hidden' color="primary">
-                                <HiOutlineLogout />
-                            </IconButton>
-                            <IconButton onClick={toggleSidebar} aria-label="close" className='md:hidden flex justify-center items-center aspect-square' color="primary">
-                                <CloseOutlinedIcon />
-                            </IconButton>
-                        </div>
-                    </div>
-                    <List
-                        sx={{ width: '100%' }}
-                        component="nav"
-                        aria-labelledby="nested-list-subheader"
-                    >
-                        <ListItemButton>
-                            <ListItemIcon>
-                                <HomeRoundedIcon />
-                            </ListItemIcon>
-                            <ListItemText primary="Home" />
-                        </ListItemButton>
-                        <ListItemButton onClick={() => { setPackageOpen(!packageOpen) }}>
-                            <ListItemIcon>
-                                <ScatterPlotRoundedIcon />
-                            </ListItemIcon>
-                            <ListItemText primary="Packages" />
-                            {packageOpen ? <ExpandLess /> : <ExpandMore />}
-                        </ListItemButton>
-                        <Collapse in={packageOpen} timeout="auto" unmountOnExit>
-                            <List component="div" disablePadding>
-                                <ListItemButton sx={{ pl: 4 }}>
-                                    <ListItemIcon>
-                                        <VisibilityRoundedIcon />
-                                    </ListItemIcon>
-                                    <ListItemText primary="View" />
-                                </ListItemButton>
-                                <ListItemButton sx={{ pl: 4 }}>
-                                    <ListItemIcon>
-                                        <PlaylistAddRoundedIcon />
-                                    </ListItemIcon>
-                                    <ListItemText primary="Add" />
-                                </ListItemButton>
-                            </List>
-                        </Collapse>
-                        <ListItemButton onClick={() => { setVisaOpen(!visaOpen) }}>
-                            <ListItemIcon>
-                                <FaPassport />
-                            </ListItemIcon>
-                            <ListItemText primary="Visa" />
-                            {visaOpen ? <ExpandLess /> : <ExpandMore />}
-                        </ListItemButton>
-                        <Collapse in={visaOpen} timeout="auto" unmountOnExit>
-                            <List component="div" disablePadding>
-                                <ListItemButton sx={{ pl: 4 }}>
-                                    <ListItemIcon>
-                                        <VisibilityRoundedIcon />
-                                    </ListItemIcon>
-                                    <ListItemText primary="View" />
-                                </ListItemButton>
-                                <ListItemButton sx={{ pl: 4 }}>
-                                    <ListItemIcon>
-                                        <PlaylistAddRoundedIcon />
-                                    </ListItemIcon>
-                                    <ListItemText primary="Add" />
-                                </ListItemButton>
-                            </List>
-                        </Collapse>
-                        <ListItemButton>
-                            <ListItemIcon>
-                                <SpaceDashboardRoundedIcon />
-                            </ListItemIcon>
-                            <ListItemText primary="Dashboard" />
-                        </ListItemButton>
-                    </List>
-                </div>
+                <Sidebar activeTab={'package'} activeTabSecondary={'packageview'} />
                 <div className="col-span-4 h-screen ">
+                    <div className="w-full p-2 z-10 md:hidden fixed top-0 flex gap-1 items-center  bg-[rgb(246,248,252)] border-b border-gray-300">
+                        <IconButton onClick={toggleSidebar} aria-label="menu" color='primary'>
+                            <MenuRoundedIcon />
+                        </IconButton>
+                        <h2 className="font-bold">Admin</h2>
+                    </div>
                     {
                         data &&
                         <OrderDetails data={data} />
@@ -144,7 +72,7 @@ const page = ({ data }) => {
 export default page
 export async function getServerSideProps(context) {
     const { slug } = context.params;
-    const response = await fetch(process.env.NEXT_PUBLIC_DOMAIN+'/api/booking/getone', {
+    const response = await fetch(process.env.NEXT_PUBLIC_DOMAIN + '/api/booking/getone', {
         method: 'POST',
         headers: {
             'content-type': 'application/json',
