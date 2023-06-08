@@ -144,7 +144,7 @@ const page = ({ data }) => {
 export default page
 export async function getServerSideProps(context) {
     const { slug } = context.params;
-    const response = await fetch('http://localhost:3000/api/booking/getone', {
+    const response = await fetch(process.env.NEXT_PUBLIC_DOMAIN+'/api/booking/getone', {
         method: 'POST',
         headers: {
             'content-type': 'application/json',
