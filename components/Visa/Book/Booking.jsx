@@ -194,7 +194,7 @@ const Booking = ({ content }) => {
                                 </TextField>
                                 <TextField disabled className='col-span-3' name='phone' label="Phone" defaultValue={data.phone} variant="standard" />
                             </div>
-                            <TextField disabled defaultValue={"usman@gmail.com"} label="Email" variant="standard" />
+                            <TextField disabled defaultValue={data.email} label="Email" variant="standard" />
                             <TextField
                                 select
                                 label="Nationality"
