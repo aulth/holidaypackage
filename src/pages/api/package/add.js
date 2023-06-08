@@ -7,8 +7,6 @@ const add = async (req, res) => {
         if (req.method != 'POST') {
             return res.json({ success: false, msg: "Method not allowed" })
         }
-        console.log(req.body)
-        console.log(req.body)
         let {data, adminPin} = req.body;
         data.link = data.title.toLowerCase().replace(/[:,']/g, '').split(/\s+/).join('-');
         if(adminPin!=process.env.NEXT_ADMIN_PIN){
@@ -22,7 +20,6 @@ const add = async (req, res) => {
         }
 
     } catch (error) {
-        console.log(error)
         return res.json({ success: false, msg: error.message })
     }
 }

@@ -25,7 +25,6 @@ const NeedAssistance = () => {
     const handleOnChange = (e)=>{
         e.preventDefault();
         setData({...data, [e.target.name]:e.target.value})
-        console.log(data)
     }
     return (
         <>

@@ -35,7 +35,6 @@ const Booking = ({ content }) => {
     const handleChange = (e) => {
         setIsEmailValid(true);
         setData({ ...data, [e.target.name]: e.target.value });
-        console.log(data);
     };
     const handleOnNextToDocument = (e) => {
         e.preventDefault();

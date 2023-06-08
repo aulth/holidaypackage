@@ -58,11 +58,7 @@ const Carousel = ({ content }) => {
     const handleOnChange = (e) => {
         e.preventDefault();
         setData({ ...data, [e.target.name]: e.target.value })
-        console.log(data)
     }
-    useEffect(() => {
-        console.log(content)
-    }, [])
     const handleOnShare = ()=>{
         if (navigator.share) {
             // Function to share the current page

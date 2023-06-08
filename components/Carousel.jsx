@@ -1,18 +1,23 @@
-import React, { useEffect } from 'react';
+import React, { useEffect, useState } from 'react';
 import { Swiper, SwiperSlide } from "swiper/react";
 import SearchOutlinedIcon from '@mui/icons-material/SearchOutlined';
 import BeachAccessOutlinedIcon from '@mui/icons-material/BeachAccessOutlined';
 import AirplanemodeActiveOutlinedIcon from '@mui/icons-material/AirplanemodeActiveOutlined';
 import BusinessOutlinedIcon from '@mui/icons-material/BusinessOutlined';
 import { GiPassport } from 'react-icons/gi';
+import { Autocomplete, TextField } from '@mui/material';
+import Link from 'next/link';
 // Import Swiper styles
 import "swiper/css";
 import "swiper/css/pagination";
 import "swiper/css/navigation";
 // import required modules
 import { Autoplay, Pagination, Navigation } from "swiper";
-
-const Carousel = () => {
+var destinations;
+const Carousel = ({ content }) => {
+    destinations = ([...new Set(content.map(item => item.country))].map(country => ({ title: country, link: '/search/'+country.toLowerCase().split(' ').join('-') })))
+    useEffect(() => {
+    }, [])
     return (
         <>
             <style jsx>
@@ -63,8 +68,30 @@ const Carousel = () => {
                             <span className='md:text-base text-sm'>Visa</span>
                         </button>
                     </div>
-                    <div className="flex md:flex-row flex-col gap-2 w-3/4 items-center bg-[rgba(43,43,43,0.2)] backdrop-blur p-2">
-                        <input placeholder='Where you want to go..' type="text" className="w-full h-10 px-3 focus:outline-none bg-base-100 rounded-lg text-lg" />
+                    <div className="flex md:flex-row flex-col gap-2 w-3/4 items-center bg-[rgb(255,255,255)] backdrop-blur p-2">
+                        {/* <input placeholder='Where you want to go..' type="text" className="w-full h-10 px-3 focus:outline-none bg-base-100 rounded-lg text-lg" /> */}
+                        <Autocomplete
+                            options={destinations}
+                            getOptionLabel={(option) => option.title}
+                            className='w-full my-1'
+                            renderInput={(params) => (
+                                <TextField
+                                    {...params}
+                                    label="Where you want to go.."
+                                    variant="standard"
+                                    fullWidth
+                                    className='-mt-1'
+                                    InputLabelProps={{
+                                        style: { marginTop: -2 },
+                                    }}
+                                />
+                            )}
+                            renderOption={(props, option) => (
+                                <li {...props}>
+                                    <Link href={option.link}>{option.title}</Link>
+                                </li>
+                            )}
+                        />
                         <button className='flex items-center justify-center md:w-auto w-full bg-red-500 text-white rounded-lg h-10 px-4'>
                             <SearchOutlinedIcon />
                             Search
@@ -75,7 +102,7 @@ const Carousel = () => {
                     <div>
                         <img className='slide-image' src="https://source.unsplash.com/random/?train/" alt="Image" />
                         <div className="slide-subtitle absolute bottom-0 left-0 text-white text-xl   border-l-4 pl-4 mb-8 ml-8 border-red-600">
-                            <p  style={{ textShadow: '2px 2px 4px rgba(0, 0, 0, 0.5)' }}>Armenia Holiday Package</p>
+                            <p style={{ textShadow: '2px 2px 4px rgba(0, 0, 0, 0.5)' }}>Armenia Holiday Package</p>
                         </div>
                     </div>
                 </SwiperSlide>
@@ -83,7 +110,7 @@ const Carousel = () => {
                     <div>
                         <img className='slide-image' src="https://source.unsplash.com/random/?nature/" alt="Image" />
                         <div className="slide-subtitle absolute bottom-0 left-0 text-white text-xl   border-l-4 pl-4 mb-8 ml-8 border-red-600">
-                            <p  style={{ textShadow: '2px 2px 4px rgba(0, 0, 0, 0.5)' }}>Armenia Holiday Package</p>
+                            <p style={{ textShadow: '2px 2px 4px rgba(0, 0, 0, 0.5)' }}>Armenia Holiday Package</p>
                         </div>
                     </div>
                 </SwiperSlide>
@@ -91,7 +118,7 @@ const Carousel = () => {
                     <div>
                         <img className='slide-image' src="https://source.unsplash.com/random/?tour/" alt="Image" />
                         <div className="slide-subtitle absolute bottom-0 left-0 text-white text-xl   border-l-4 pl-4 mb-8 ml-8 border-red-600">
-                            <p  style={{ textShadow: '2px 2px 4px rgba(0, 0, 0, 0.5)' }}>Armenia Holiday Package</p>
+                            <p style={{ textShadow: '2px 2px 4px rgba(0, 0, 0, 0.5)' }}>Armenia Holiday Package</p>
                         </div>
                     </div>
                 </SwiperSlide>

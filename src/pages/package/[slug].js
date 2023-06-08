@@ -10,7 +10,7 @@ import Flights from '../../../components/Packages/Flights';
 import Overview from '../../../components/Packages/Overview';
 import Pricing from '../../../components/Packages/Pricing';
 import Gallery from '../../../components/Packages/Gallery';
-import Date from '../../../components/Packages/Date';
+import DateComponent from '../../../components/Packages/DateComponent';
 import TermsAndConditions from '../../../components/Packages/TermsAndConditions';
 import BookNow from '../../../components/Packages/BookNow';
 import MenuOpenOutlinedIcon from '@mui/icons-material/MenuOpenOutlined';
@@ -18,7 +18,7 @@ import NeedAssistance from '../../../components/Packages/NeedAssistance';
 import MorePackage from '../../../components/Packages/MorePackage';
 import Footer from '../../../components/Footer';
 import NotFound from '../../../components/NotFound';
-const page = ({ data, allPackages }) => {
+const page = ({ data, allPackages, link }) => {
     const [tourDetailHeadline, setTourDetailHeadline] = useState('Overview')
     const toggleMenu = () => {
         if (typeof window != undefined) {
@@ -103,7 +103,18 @@ const page = ({ data, allPackages }) => {
             }
         }
     }
-    console.log(data)
+    useEffect(() => {
+        incrementView();
+    }, [])
+    const incrementView = async () => {
+        const response = await fetch('/api/package/incrementviews', {
+            method: 'POST',
+            headers: {
+                'content-type': 'application/json',
+            },
+            body: JSON.stringify({ link: link })
+        });
+    }
     return (
         <>
             {
@@ -117,10 +128,10 @@ const page = ({ data, allPackages }) => {
                             <div className="w-full px-6 py-2 md:hidden flex justify-between bg-red-500 text-white items-center">
                                 <h3 className="font-bold ">{tourDetailHeadline}</h3>
                                 <button id="open-menu" onClick={toggleMenu} className='text-white' color="error">
-                                        <MenuOutlinedIcon />
+                                    <MenuOutlinedIcon />
                                 </button>
                                 <button onClick={toggleMenu} id="close-menu" aria-label="tour-details" className='text-white hidden' color="error">
-                                        <CloseOutlinedIcon />
+                                    <CloseOutlinedIcon />
                                 </button>
                             </div>
                             <ul id="tour-details" className="flex md:h-auto  md:flex-row h-0 duration-100 overflow-y-hidden md:w-auto w-full flex-col items-start  text-white ">
@@ -158,7 +169,7 @@ const page = ({ data, allPackages }) => {
                             {/* Date & Prices */}
                             <div id='dateAndPrice' className="w-full flex scroll-mt-[120px]  flex-col my-4">
                                 <h2 className="text-xl font-bold text-red-600 uppercase">Date & Prices</h2>
-                                <Date content={data} />
+                                <DateComponent  content={data} />
                                 <Pricing content={data} />
                             </div>
                             <div id='gallery' className="w-full flex  scroll-mt-[120px]  flex-col my-4">
@@ -193,7 +204,9 @@ const page = ({ data, allPackages }) => {
 export default page
 export async function getServerSideProps(context) {
     const { slug } = context.params
-    let data = require('./../../../public/data.json');
+    let data = await fetch(`${process.env.NEXT_PUBLIC_DOMAIN}/api/package/getall`);
+    data = await data.json();
+    data = data.packages
     let allPackages = data;
     data = data.filter(data => data.link == slug);
     if (data.length > 0) {
@@ -205,6 +218,7 @@ export async function getServerSideProps(context) {
         props: {
             data: data,
             allPackages: allPackages,
+            link:slug
         }, // will be passed to the page component as props
     }
 }

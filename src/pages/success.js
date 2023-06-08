@@ -22,7 +22,7 @@ const page = () => {
             setData(json.data);
             console.log(json.data)
             setPaymentCompleted(true)
-            // fetchItem(json.data.itemId);
+            fetchItem(json.data.data.link, json.data.type);
         }
     }
     const validatePayment = async (sessionId) => {
@@ -40,25 +40,33 @@ const page = () => {
             setPaymentCompleted(true);
         }
     }
-    // const fetchItem = async (id, type) => {
-    //     let url = `/api/${type}/fetchone`;
-    //     let response = await fetch(url, {
-    //         method: 'POST',
-    //         headers: {
-    //             'content-type': 'application/jsono'
-    //         },
-    //         body: JSON.stringify({ id: id })
-    //     })
-    //     let json = await response.json();
-    //     if (json.success) {
-    //         setItem(json.item);
-    //     }
-    // }
+    const fetchItem = async (link, type) => {
+        let url = `/api/${type}/getone`;
+        console.log(url)
+        console.log(link)
+        let response = await fetch(url, {
+            method: 'POST',
+            headers: {
+                'content-type': 'application/json'
+            },
+            body: JSON.stringify({ link: link })
+        })
+        let json = await response.json();
+        console.log(json)
+        if (json.success) {
+            console.log(json)
+            if (type == 'visa') {
+                setItem(json.visa)
+            } else {
+                setItem(json.package)
+            }
+        }
+    }
     useEffect(() => {
         if (typeof window != undefined) {
             if (localStorage.getItem('sessionId')) {
                 validatePayment(localStorage.getItem('sessionId'));
-                // localStorage.removeItem('sessionId')
+                localStorage.removeItem('sessionId')
             }
         }
     }, [])
@@ -120,20 +128,22 @@ const page = () => {
                         </div>
                         <hr />
                         <div className="w-full flex justify-between items-start p-4">
-                            <div className="flex gap-2 justify-center items-start">
-                                <img src="https://source.unsplash.com/random/?armenia/" className='w-20 aspect-video object-cover rounded' alt="" />
-                                <div>
-                                    <h4 className="font-bold">UAE Visa</h4>
-                                    <h5 className="font-semibold text-xs">#0001</h5>
+                            {
+                                item && <div className="flex gap-2 justify-center items-start">
+                                    <img src={item.gallery[0]} className='w-20 aspect-video object-cover rounded' alt="" />
+                                    <div>
+                                        <h4 className="font-bold">{item.title}</h4>
+                                        <h5 className="font-semibold text-xs">#{item._id}</h5>
+                                    </div>
                                 </div>
-                            </div>
+                            }
                             <h4 className="font-bold">
-                               {
-                                data.data.type=='visa'&& data.data.amount
-                               }
                                 {
-                                    data.data.type=='package' &&
-                                    data.data.traveller.adult*data.data.price[`adult${data.data.occupancy[0].toUpperCase() + data.data.occupancy.slice(1)}`] + data.data.traveller.child*data.data.price.child + data.data.traveller.infant*data.data.price.infant
+                                    data.data.type == 'visa' && data.data.amount
+                                }
+                                {
+                                    data.data.type == 'package' &&
+                                    data.data.traveller.adult * data.data.price[`adult${data.data.occupancy[0].toUpperCase() + data.data.occupancy.slice(1)}`] + data.data.traveller.child * data.data.price.child + data.data.traveller.infant * data.data.price.infant
                                 }
                             </h4>
                         </div>
@@ -160,19 +170,19 @@ const page = () => {
                                         <TableBody>
                                             <TableRow sx={{ border: 0 }}>
                                                 <TableCell align="left">Adult</TableCell>
-                                                <TableCell align="right">{data.data.traveller.adult*data.data.price[`adult${data.data.occupancy[0].toUpperCase()+data.data.occupancy.slice(1)}`]}</TableCell>
+                                                <TableCell align="right">{data.data.traveller.adult * data.data.price[`adult${data.data.occupancy[0].toUpperCase() + data.data.occupancy.slice(1)}`]}</TableCell>
                                             </TableRow>
                                             <TableRow>
                                                 <TableCell align="left">Child</TableCell>
-                                                <TableCell align="right">{data.data.traveller.child*data.data.price.child}</TableCell>
+                                                <TableCell align="right">{data.data.traveller.child * data.data.price.child}</TableCell>
                                             </TableRow>
                                             <TableRow>
                                                 <TableCell align="left">Infant</TableCell>
-                                                <TableCell align="right">{data.data.traveller.infant*data.data.price.infant}</TableCell>
+                                                <TableCell align="right">{data.data.traveller.infant * data.data.price.infant}</TableCell>
                                             </TableRow>
                                             <TableRow className='border-t-2 border-b-2 border-gray-200'>
                                                 <TableCell align="left" className='font-semibold'>Total</TableCell>
-                                                <TableCell align="right" className='font-semibold'>{data.data.traveller.adult*data.data.price[`adult${data.data.occupancy[0].toUpperCase() + data.data.occupancy.slice(1)}`] + data.data.traveller.child*data.data.price.child + data.data.traveller.infant*data.data.price.infant}</TableCell>
+                                                <TableCell align="right" className='font-semibold'>{data.data.traveller.adult * data.data.price[`adult${data.data.occupancy[0].toUpperCase() + data.data.occupancy.slice(1)}`] + data.data.traveller.child * data.data.price.child + data.data.traveller.infant * data.data.price.infant}</TableCell>
                                             </TableRow>
                                         </TableBody>
                                     }

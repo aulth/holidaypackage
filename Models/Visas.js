@@ -8,6 +8,7 @@ const Visas = new mongoose.Schema({
     exclusions:Array,
     price:Number,
     termConditions:String,
+    views:Number
 }, { timestamps: true })
 
 mongoose.models = {};

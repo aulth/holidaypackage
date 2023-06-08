@@ -30,7 +30,6 @@ const Add = () => {
     const handleChange = (e) => {
         e.preventDefault();
         setData({ ...data, [e.target.name]: e.target.value })
-        console.log(data);
     }
     const handlePriceChange = (e) => {
         e.preventDefault();
@@ -44,7 +43,6 @@ const Add = () => {
     const handleSubmit = async (e) => {
         e.preventDefault();
         setLoading(true);
-        console.log(data)
         let response = await fetch('/api/package/add', {
             method: 'POST',
             headers: {

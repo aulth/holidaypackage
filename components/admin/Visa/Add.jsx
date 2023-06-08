@@ -21,12 +21,10 @@ const Add = () => {
     const handleChange = (e) => {
         e.preventDefault();
         setData({ ...data, [e.target.name]: e.target.value })
-        console.log(data);
     }
     const handleSubmit = async (e) => {
         e.preventDefault();
         setLoading(true);
-        console.log(data)
         let response = await fetch('/api/visa/add', {
             method: 'POST',
             headers: {

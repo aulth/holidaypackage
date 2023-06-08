@@ -7,9 +7,7 @@ const add = async (req, res) => {
         if (req.method != 'POST') {
             return res.json({ success: false, msg: "Method not allowed" })
         }
-        console.log(req.body)
         const {adminPin} = req.body;
-        console.log(req.body)
         if(adminPin!=process.env.NEXT_ADMIN_PIN){
             return res.json({ success: false, msg: "Not authenticated" })
         }
@@ -21,7 +19,6 @@ const add = async (req, res) => {
         }
 
     } catch (error) {
-        console.log(error)
         return res.json({ success: false, msg: error.message })
     }
 }

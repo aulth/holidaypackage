@@ -71,7 +71,6 @@ export default function UploadDocuments({ data, setData }) {
                     const responseData = JSON.parse(xhr.responseText);
                     setLoading(false);
                     setProgress(0);
-                    console.log('File uploaded:', responseData.url);
                     setData(prevData => ({ ...prevData, passportFrontPage: responseData.url }));
                 } else {
                     console.error('Error uploading file:', xhr.responseText);

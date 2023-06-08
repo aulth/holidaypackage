@@ -7,12 +7,10 @@ const add = async (req, res) => {
         if (req.method != 'POST') {
             return res.json({ success: false, msg: "Method not allowed" })
         }
-        console.log(req.body)
         const {link} = req.body;
         let data = await Visas.findOne({link:link});
-        console.log(order)
         if (data) {
-            return res.json({ success: true, msg: 'Booking fetched', 'visa': data })
+            return res.json({ success: true, msg: 'Visa fetched', 'visa': data })
         } else {
             return res.json({ success: false, msg: "Something went wrong" })
         }

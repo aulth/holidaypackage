@@ -14,6 +14,8 @@ const Packages = new mongoose.Schema({
     finish:Date,
     price:Object,
     termConditions:String,
+    views:Number,
+    country:String,
 }, { timestamps: true })
 
 mongoose.models = {};

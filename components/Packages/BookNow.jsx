@@ -32,7 +32,6 @@ const BookNow = ({ content }) => {
     const handleOnChange = (e) => {
         e.preventDefault();
         setData({ ...data, [e.target.name]: e.target.value })
-        console.log(data)
     }
     const handleOnSubmit = async (e) => {
         e.preventDefault();
@@ -45,7 +44,18 @@ const BookNow = ({ content }) => {
         setTraveller({...traveller, child:0, infant:0})
       }
     }, [traveller.adult])
-    
+    function formatDate(dateString) {
+        const date = new Date(dateString);
+        const day = date.getDate();
+        const month = date.getMonth() + 1; // Months are zero-based, so we add 1
+        const year = date.getFullYear();
+      
+        // Pad single-digit day and month with leading zero if needed
+        const formattedDay = day < 10 ? '0' + day : day;
+        const formattedMonth = month < 10 ? '0' + month : month;
+      
+        return formattedDay + '/' + formattedMonth + '/' + year;
+      }
     return (
         <>
             <form onSubmit={handleOnSubmit} className="w-full border rounded-md flex gap-2 flex-col p-4 sticky top-0">
@@ -62,8 +72,8 @@ const BookNow = ({ content }) => {
                     name='date'
                     onChange={handleOnChange}
                 >
-                    <MenuItem key={1} value={'28/02/2033'}>
-                        28/02/2033
+                    <MenuItem key={1} value={content.start}>
+                        {formatDate(content.start)}
                     </MenuItem>
                 </TextField>
 

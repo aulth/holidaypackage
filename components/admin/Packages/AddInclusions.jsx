@@ -14,9 +14,9 @@ const AddInclusions = ({setData}) => {
         const updatedArray = [...arrayValues];
         updatedArray[index] = value;
         setArrayValues(updatedArray);
-        console.log(arrayValues)
-        setData(prevData => ({ ...prevData, inclusions:arrayValues }));
+        setData(prevData => ({ ...prevData, inclusions:updatedArray }));
     };
+
 
     const handleAddField = () => {
         setArrayValues([...arrayValues, '']);

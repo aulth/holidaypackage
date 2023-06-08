@@ -27,7 +27,7 @@ const MorePackage = ({ allVisa }) => {
                     allVisa.map((item, index) => {
                         return <div key={index} className="aspect-video flex flex-col shrink-0 w-60">
                             <img src={item.gallery[0]} className='object-cover w-full aspect-video rounded shrink-0' alt="" />
-                            <h2 className="font-semibold"><Link href={`/packages/${item.link}`}>{item.title}</Link></h2>
+                            <h2 className="font-semibold"><Link href={`/visa/${item.link}`}>{item.title}</Link></h2>
                         </div>
                     })
                 }

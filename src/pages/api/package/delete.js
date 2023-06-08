@@ -20,7 +20,6 @@ const add = async (req, res) => {
         }
 
     } catch (error) {
-        console.log(error)
         return res.json({ success: false, msg: error.message })
     }
 }

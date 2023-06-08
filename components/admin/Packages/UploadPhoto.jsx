@@ -33,7 +33,6 @@ const UploadPhoto = ({setData, data}) => {
                 if (xhr.readyState === XMLHttpRequest.DONE) {
                     if (xhr.status === 200) {
                         const responseData = JSON.parse(xhr.responseText);
-                        console.log('File uploaded:', responseData.url);
                         uploadedLinks.push(responseData.url);
                     } else {
                         console.error('Error uploading file:', xhr.responseText);

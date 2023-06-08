@@ -21,7 +21,6 @@ export default function AppStore({ children }) {
       body: JSON.stringify({ data })
     })
     const responseData = await response.json();
-    console.log(responseData);
     if (responseData.success) {
       createCheckOutSession(responseData.bookingNumber, data);
     } else {
@@ -68,7 +67,6 @@ export default function AppStore({ children }) {
     }
   };
   const fetchAllOrders = async () => {
-    console.log(process.env.mongodburl)
     const response = await fetch('/api/booking/getall', {
       method: 'POST',
       headers: {
@@ -77,9 +75,7 @@ export default function AppStore({ children }) {
       body: JSON.stringify({ adminPin: process.env.NEXT_PUBLIC_ADMIN_PIN})
     });
     let json = await response.json();
-    console.log(json)
     if (json.success) {
-      console.log(json);
       setAllOrders(json.orders)
     }
   }

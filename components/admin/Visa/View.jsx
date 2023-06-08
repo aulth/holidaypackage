@@ -8,13 +8,12 @@ import Avatar from '@mui/material/Avatar';
 import Typography from '@mui/material/Typography';
 import Link from 'next/link';
 import DeleteOutlineRoundedIcon from '@mui/icons-material/DeleteOutlineRounded';
-import { Button } from '@mui/material';
+import { Button, Skeleton } from '@mui/material';
 const View = () => {
     const [visas, setVisas] = useState()
     const fetchVisa = async () => {
         const response = await fetch('/api/visa/getall')
         let json = await response.json();
-        console.log(json)
         if (json.success) {
             setVisas(json.visas)
         }
@@ -27,7 +26,6 @@ const View = () => {
         if (typeof window != undefined && visas) {
             visas.forEach((visa, index) => {
                 document.querySelector(`#visa-${visa._id}`).innerText = extractPlainText(visa.overview).slice(0, 50)
-                console.log(visa.overview)
             })
         }
     }, [visas])
@@ -40,7 +38,6 @@ const View = () => {
             body: JSON.stringify({ id: id, adminPin: process.env.NEXT_PUBLIC_ADMIN_PIN })
         })
         let json = await response.json();
-        console.log(json)
         if (json.success) {
             fetchVisa();
         }
@@ -92,7 +89,13 @@ const View = () => {
                         }
                         {
                             !visas &&
-                            <h3 className="font-bold text-sm text-center">No Visa Found</h3>
+                            <>
+                            <VisaSkelton/>
+                            <VisaSkelton/>
+                            <VisaSkelton/>
+                            <VisaSkelton/>
+                            <VisaSkelton/>
+                            </>
                         }
                     </List>
                 </div>
@@ -100,5 +103,18 @@ const View = () => {
         </>
     )
 }
-
+const VisaSkelton = () => {
+    return <>
+        <ListItem alignItems="flex-start">
+            <ListItemAvatar>
+                <Skeleton variant="circular" width={40} height={40} />
+            </ListItemAvatar>
+            <ListItemText
+                primary={<Skeleton variant="text" width={200} />}
+                secondary={<Skeleton variant="text" width={100} />}
+            />
+        </ListItem>
+        <Divider variant="inset" component="li" />
+    </>
+}
 export default View

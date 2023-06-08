@@ -7,7 +7,6 @@ const add = async (req, res) => {
         if (req.method != 'POST') {
             return res.json({ success: false, msg: "Method not allowed" })
         }
-        console.log(req.body)
         const {sessionId} = req.body;
         let updatedBooking = await Booking.findOneAndUpdate({sessionId:sessionId}, {
             paymentCompleted:true
@@ -20,7 +19,6 @@ const add = async (req, res) => {
         }
 
     } catch (error) {
-        console.log(error)
         return res.json({ success: false, msg: error.message })
     }
 }

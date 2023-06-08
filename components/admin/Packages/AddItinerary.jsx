@@ -22,7 +22,13 @@ const AddItinerary = ({setData}) => {
             field.id === id ? { ...field, [e.target.name]: value } : field
         );
         setItineraryFields(updatedItineraryFields);
-        console.log(itineraryFields)
+        setData(prevData=>({...prevData, itinerary:itineraryFields}))
+    };
+    const handleItineraryPaste = (value, id, name) => {
+        const updatedItineraryFields = itineraryFields.map((field) =>
+            field.id === id ? { ...field, [name]: value } : field
+        );
+        setItineraryFields(updatedItineraryFields);
         setData(prevData=>({...prevData, itinerary:itineraryFields}))
     };
     const handleItineraryContentChange = (e, id) => {
@@ -31,6 +37,7 @@ const AddItinerary = ({setData}) => {
             field.id === id ? { ...field, description: value } : field
         );
         setItineraryFields(updatedItineraryFields);
+        setData(prevData=>({...prevData, itinerary:updatedItineraryFields}))
     };
     return (
         <>
@@ -42,8 +49,8 @@ const AddItinerary = ({setData}) => {
                     <React.Fragment key={field.id}>
                         <h3 className="font-semibold text-sm my-4">Itinerary {index + 1}</h3>
                         <div className="w-full flex gap-2 items-center mt-2">
-                            <TextField inputProps={{ required: true }} onChange={(e) => handleItineraryChange(e, field.id, 'highlight')} label="Highlight" name='highlight' variant="outlined" />
-                            <TextField inputProps={{ required: true }} onChange={(e) => handleItineraryChange(e, field.id, 'title')} label="Title" name='title' className='w-full' variant="outlined" />
+                            <TextField onPaste={(e)=>{handleItineraryPaste(e.clipboardData.getData("text"), field.id, 'highlight')}} inputProps={{ required: true }} onChange={(e) => handleItineraryChange(e, field.id, 'highlight')} label="Highlight" name='highlight' variant="outlined" />
+                            <TextField  onPaste={(e)=>{handleItineraryPaste(e.clipboardData.getData("text"), field.id, 'title')}}  inputProps={{ required: true }} onChange={(e) => handleItineraryChange(e, field.id, 'title')} label="Title" name='title' className='w-full' variant="outlined" />
                         </div>
                         <QuillNoSSRWrapper className='mt-4' placeholder='Description' onChange={(e) => { handleItineraryContentChange(e, field.id) }} modules={modules} theme="snow" />
                     </React.Fragment>

@@ -154,7 +154,6 @@ export async function getServerSideProps(context) {
     let json = await response.json();
     if (json.success) {
         json = json.order
-        console.log(json);
     } else {
         json = '';
     }

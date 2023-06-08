@@ -2,7 +2,16 @@ import React from 'react'
 import PlaceOutlinedIcon from '@mui/icons-material/PlaceOutlined';
 import AssistantPhotoOutlinedIcon from '@mui/icons-material/AssistantPhotoOutlined';
 import { Button } from '@mui/material';
-const Date = ({content}) => {
+const getFormattedDate = (str) => {
+    const date = new Date(str);
+    const month = date.toLocaleString('default', { month: 'long' });
+    const day = date.getDate();
+    const year = date.getFullYear();
+    const formattedDate = `${month} ${day}, ${year}`;
+    return formattedDate;
+}
+const DateComponent = ({content}) => {
+   
     return (
         <div className="w-full flex justify-between items-center rounded-full border bg-gray-100 p-3 mt-4">
             <div className="flex gap-2 items-center">
@@ -11,7 +20,7 @@ const Date = ({content}) => {
                 </div>
                 <div className='-mt-0.5'>
                     <span className='text-xs'>Start</span>
-                    <p className="font-semibold text-sm -mt-0.5">{content.start}</p>
+                    <p className="font-semibold text-sm -mt-0.5">{getFormattedDate(content.start)}</p>
                 </div>
             </div>
             <div className="flex gap-2 items-center">
@@ -20,7 +29,7 @@ const Date = ({content}) => {
                 </div>
                 <div className='-mt-0.5'>
                     <span className='text-xs'>Finish</span>
-                    <p className="font-semibold text-sm -mt-0.5">{content.finish}</p>
+                    <p className="font-semibold text-sm -mt-0.5">{getFormattedDate(content.finish)}</p>
                 </div>
             </div>
             <Button variant='contained' style={{borderRadius:9999, background:'rgb(239 68 68)'}} color='error' className='rounded-full bg-red-500'>Enquiry</Button>
@@ -28,4 +37,4 @@ const Date = ({content}) => {
     )
 }
 
-export default Date
+export default DateComponent

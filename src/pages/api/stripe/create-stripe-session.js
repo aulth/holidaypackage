@@ -7,9 +7,7 @@ const redirectURL = process.env.NODE_ENV === 'development'
   : 'https://tourism-zeta.vercel.app';
 
 async function createStripeSession(req, res) {
-  console.log(req.body)
   const {data} = req.body;
-  console.log(data)
   const transformedItem = {
     quantity: 1,
     price_data: {

@@ -8,13 +8,13 @@ import Avatar from '@mui/material/Avatar';
 import Typography from '@mui/material/Typography';
 import Link from 'next/link';
 import DeleteOutlineRoundedIcon from '@mui/icons-material/DeleteOutlineRounded';
+import { Skeleton } from '@mui/material';
 import { Button } from '@mui/material';
 const View = () => {
     const [packages, setPackages] = useState()
     const fetchPackages = async () => {
         const response = await fetch('/api/package/getall')
         let json = await response.json();
-        console.log(json)
         if (json.success) {
             setPackages(json.packages)
         }
@@ -38,7 +38,6 @@ const View = () => {
             body: JSON.stringify({ id: id, adminPin: process.env.NEXT_PUBLIC_ADMIN_PIN })
         })
         let json = await response.json();
-        console.log(json)
         if (json.success) {
             fetchPackages();
         }
@@ -68,7 +67,7 @@ const View = () => {
                                             <Avatar alt="Remy Sharp" src={item.gallery[0]} />
                                         </ListItemAvatar>
                                         <ListItemText
-                                            primary={<div className='flex justify-between items-start'><Link href={`/package/${item.link}`}><h3 className='font-bold'>{item.title}</h3></Link><Button onClick={()=>{handleOnDelete(item._id)}} variant="contained" className="bg-red-500" size='small' startIcon={<DeleteOutlineRoundedIcon />} color="error">Delete</Button></div>}
+                                            primary={<div className='flex justify-between items-start'><Link href={`/package/${item.link}`}><h3 className='font-bold'>{item.title}</h3></Link><Button onClick={() => { handleOnDelete(item._id) }} variant="contained" className="bg-red-500" size='small' startIcon={<DeleteOutlineRoundedIcon />} color="error">Delete</Button></div>}
                                             secondary={
                                                 <React.Fragment>
                                                     <Typography
@@ -90,7 +89,14 @@ const View = () => {
                         }
                         {
                             !packages &&
-                            <h3 className="font-bold text-sm text-center">No Package Found</h3>
+                            <>
+
+                                <PackageSkelton />
+                                <PackageSkelton />
+                                <PackageSkelton />
+                                <PackageSkelton />
+                                <PackageSkelton />
+                            </>
                         }
                     </List>
                 </div>
@@ -98,5 +104,18 @@ const View = () => {
         </>
     )
 }
-
+const PackageSkelton = () => {
+    return <>
+        <ListItem alignItems="flex-start">
+            <ListItemAvatar>
+                <Skeleton variant="circular" width={40} height={40} />
+            </ListItemAvatar>
+            <ListItemText
+                primary={<Skeleton variant="text" width={200} />}
+                secondary={<Skeleton variant="text" width={100} />}
+            />
+        </ListItem>
+        <Divider variant="inset" component="li" />
+    </>
+}
 export default View

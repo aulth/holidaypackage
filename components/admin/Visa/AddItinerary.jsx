@@ -22,7 +22,6 @@ const AddItinerary = ({setData}) => {
             field.id === id ? { ...field, [e.target.name]: value } : field
         );
         setItineraryFields(updatedItineraryFields);
-        console.log(itineraryFields)
         setData(prevData=>({...prevData, itinerary:itineraryFields}))
     };
     const handleItineraryContentChange = (e, id) => {

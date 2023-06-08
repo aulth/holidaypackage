@@ -16,7 +16,6 @@ const AddExclusions = ({setData}) => {
         setArrayValues(updatedArray);
         setData(prevData => ({ ...prevData, exclusions:updatedArray }));
     };
-
     const handleAddField = () => {
         setArrayValues([...arrayValues, '']);
     };

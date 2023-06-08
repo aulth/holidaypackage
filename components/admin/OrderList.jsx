@@ -3,6 +3,7 @@ import List from '@mui/material/List';
 import ListItemButton from '@mui/material/ListItemButton';
 import ListItemText from '@mui/material/ListItemText';
 import ListItem from '@mui/material/ListItem';
+import { Skeleton } from '@mui/material';
 const OrderList = ({ orders, fetchAllOrders }) => {
     const getFormattedDate = (str) => {
         const date = new Date(str);
@@ -25,7 +26,7 @@ const OrderList = ({ orders, fetchAllOrders }) => {
             alert(json.msg)
         }
         fetchAllOrders();
-        
+
     }
     return (
         <List className='-mt-4'>
@@ -49,8 +50,36 @@ const OrderList = ({ orders, fetchAllOrders }) => {
                     </ListItem>
                 })
             }
+            {
+                !orders &&
+                <>
+                <OrderListSkeleton/>
+                <OrderListSkeleton/>
+                <OrderListSkeleton/>
+                <OrderListSkeleton/>
+                <OrderListSkeleton/>
+                <OrderListSkeleton/>
+                <OrderListSkeleton/>
+                </>
+            }
         </List >
     )
 }
-
+const OrderListSkeleton = () => {
+    return (
+        <ListItem disablePadding className='border-b'>
+            <ListItemButton className='w-full'>
+                <div className="w-full grid grid-cols-2 gap-4">
+                    <div className=''>
+                        <Skeleton variant="text" width={200} />
+                        <Skeleton variant="text" width={100} />
+                    </div>
+                    <div className='flex gap-2 justify-end'>
+                        <Skeleton variant="text" width={100} />
+                    </div>
+                </div>
+            </ListItemButton>
+        </ListItem>
+    );
+}
 export default OrderList

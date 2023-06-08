@@ -7,7 +7,6 @@ const add = async (req, res) => {
         if (req.method != 'GET') {
             return res.json({ success: false, msg: "Method not allowed" })
         }
-        console.log(req.body)
         let visas = await Visas.find({});
         if (visas) {
             return res.json({ success: true, msg: 'Packages fetched', visas: visas })

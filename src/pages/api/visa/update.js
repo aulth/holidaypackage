@@ -8,7 +8,6 @@ const add = async (req, res) => {
             return res.json({ success: false, msg: "Method not allowed" })
         }
 
-        console.log(req.body)
         const {id, adminPin, data} = req.body;
         if(adminPin!=process.env.NEXT_ADMIN_PIN){
             return res.json({ success: false, msg: "Not authenticated" })
