@@ -65,7 +65,7 @@ const Booking = ({ content }) => {
                     <div className="w-full p-4 bg-gray-50 flex justify-between">
                         <div>
                             <h2 className="text-xl font-bold">{content.title}</h2>
-                            <p className="text-sm font-semibold">#{content.id}</p>
+                            <p className="text-sm font-semibold">#{content._id}</p>
                         </div>
                     </div>
                     <div className="w-full my-8">
