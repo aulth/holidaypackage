@@ -1,12 +1,30 @@
 import Navbar from '../../../components/blog/Navbar'
-import React from 'react'
+import React, {useEffect, useState} from 'react'
 import ArticleComponent from '../../../components/blog/article/ArticleComponent'
 import Footer from '../../../components/Footer'
 import data from 'public/data'
-import Article from '../../../Models/Article'
-import connectToDb from '../../../middleware/connectToDb'
 import Head from 'next/head'
-const ArticlePage = ({ data }) => {
+const ArticlePage = ({slug }) => {
+  const [data, setData] = useState('')
+  const fetchArticle = async ()=>{
+    const response = await fetch(process.env.NEXT_PUBLIC_DOMAIN + '/api/blog/fetchone', {
+      method: 'POST',
+      headers: {
+        'content-type': 'application/json',
+      },
+      body: JSON.stringify({ link: slug })
+    })
+    var json = await response.json();
+    if (json.success) {
+      setData(json.article)
+    } else {
+      setData('')
+    }
+  }
+  useEffect(() => {
+    fetchArticle();
+  }, [slug])
+  
   return (
     <>
       <Navbar />
@@ -56,12 +74,10 @@ const ArticlePage = ({ data }) => {
 
 export default ArticlePage
 export async function getServerSideProps(context) {
-    connectToDb();
-    const { slug } = context.params;
-    let data = await Article.findOne({link:slug})
-    return {
-      props: {
-        data: JSON.parse(JSON.stringify(data)),
-      },
-    };
+  const { slug } = context.params
+  return {
+    props: {
+      slug:slug
+    }, // will be passed to the page component as props
   }
+}
