@@ -59,7 +59,7 @@ const page = ({data}) => {
 
 export default page
 export async function getServerSideProps(context) {
-    const response = await fetch(process.env.NEXT_PUBLIC_DOMAIN+'/api/blog/securefetch', {
+    const response = await fetch(process.env.NEXT_PUBLIC_DOMAIN + '/api/blog/securefetch', {
       method:'POST',
       headers:{
         'content-type':'application/json'
@@ -67,6 +67,7 @@ export async function getServerSideProps(context) {
       body:JSON.stringify({adminPin:process.env.NEXT_PUBLIC_ADMIN_PIN})
     })
     var data = await response.json();
+    console.log(data)
     if (data.success) {
       data = data.article;
     } else {
