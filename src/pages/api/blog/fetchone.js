@@ -1,7 +1,6 @@
 // Next.js API route support: https://nextjs.org/docs/api-routes/introduction
-import connectToDb from "../../../../middleware/connectToDb";
-import Article from "../../../../Models/Article";
-
+import connectToDb from "middleware/connectToDb";
+import Article from "models/Article";
 connectToDb();
 export default async function handler(req, res) {
     if (req.method != "POST") {
