@@ -70,20 +70,19 @@ const ArticlePage = ({ data, slug }) => {
 export default ArticlePage
 export async function getServerSideProps(context) {
   const { slug } = context.params
-  // const response = await fetch(process.env.NEXT_PUBLIC_DOMAIN + '/api/blog/fetchone', {
-  //   method: 'POST',
-  //   headers: {
-  //     'content-type': 'application/json',
-  //   },
-  //   body: JSON.stringify({ link: slug })
-  // })
-  // var data = await response.json();
-  // if (data.success) {
-  //   data = data.article;
-  // } else {
-  //   data = "";
-  // }
-  const data = ''
+  const response = await fetch(process.env.NEXT_PUBLIC_DOMAIN + '/api/blog/fetchone', {
+    method: 'POST',
+    headers: {
+      'content-type': 'application/json',
+    },
+    body: JSON.stringify({ link: slug })
+  })
+  var data = await response.json();
+  if (data.success) {
+    data = data.article;
+  } else {
+    data = "";
+  }
   return {
     props: {
       data: data,
