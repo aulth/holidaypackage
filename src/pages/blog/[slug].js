@@ -1,8 +1,10 @@
 import Navbar from '../../../components/blog/Navbar'
 import React from 'react'
-import Article from '../../../components/blog/article/Article'
+import ArticleComponent from '../../../components/blog/article/ArticleComponent'
 import Footer from '../../../components/Footer'
 import data from 'public/data'
+import Article from '../../../Models/Article'
+import connectToDb from '../../../middleware/connectToDb'
 import Head from 'next/head'
 const ArticlePage = ({ data }) => {
   return (
@@ -32,7 +34,7 @@ const ArticlePage = ({ data }) => {
             <meta property="twitter:description" content={data.content.slice(0, 150).replace(/<[^>]+>/g, '')} />
             <meta property="twitter:image" content={data.cover} />
           </Head>
-          <Article data={data} />
+          <ArticleComponent data={data} />
         </>
       }
       {
@@ -54,37 +56,12 @@ const ArticlePage = ({ data }) => {
 
 export default ArticlePage
 export async function getServerSideProps(context) {
-  try {
+    connectToDb();
     const { slug } = context.params;
-    const response = await fetch(process.env.NEXT_PUBLIC_DOMAIN + '/api/blog/fetchone', {
-      method: 'POST',
-      headers: {
-        'Content-Type': 'application/json',
-      },
-      body: JSON.stringify({ link: slug }),
-    });
-
-    if (!response.ok) {
-      throw new Error('Failed to fetch article data');
-    }
-
-    const data = await response.json();
-
-    if (data.success) {
-      return {
-        props: {
-          data: data.article,
-        },
-      };
-    } else {
-      throw new Error('Article not found');
-    }
-  } catch (error) {
-    console.error(error);
+    let data = await Article.findOne({link:slug})
     return {
       props: {
-        data: null,
+        data: JSON.parse(JSON.stringify(data)),
       },
     };
   }
-}

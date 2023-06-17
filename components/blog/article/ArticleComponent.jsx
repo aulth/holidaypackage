@@ -5,7 +5,7 @@ import Subscribe from '../home/Subscribe'
 import YouMightLike from './YouMightLike'
 import Comment from './Comment'
 import PostComment from './PostComment'
-const Article = ({ data }) => {
+const ArticleComponent = ({ data }) => {
     const incrView = async () => {
         const response = await fetch('/api/blog/incrviews', {
             method: 'POST',
@@ -47,4 +47,4 @@ const Article = ({ data }) => {
     )
 }
 
-export default Article
+export default ArticleComponent
