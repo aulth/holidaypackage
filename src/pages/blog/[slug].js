@@ -1,29 +1,24 @@
 import Navbar from '../../../components/blog/Navbar'
-import React, {useEffect, useState} from 'react'
-import ArticleComponent from '../../../components/blog/article/ArticleComponent'
+import React, {useEffect} from 'react'
 import Footer from '../../../components/Footer'
+import ArticleComponent from '../../../components/blog/article/ArticleComponent'
 import data from 'public/data'
 import Head from 'next/head'
-const ArticlePage = ({slug }) => {
-  const [data, setData] = useState('')
-  const fetchArticle = async ()=>{
-    const response = await fetch(process.env.NEXT_PUBLIC_DOMAIN + '/api/blog/fetchone', {
-      method: 'POST',
-      headers: {
-        'content-type': 'application/json',
-      },
-      body: JSON.stringify({ link: slug })
-    })
-    var json = await response.json();
-    if (json.success) {
-      setData(json.article)
-    } else {
-      setData('')
+const ArticlePage = ({ data, slug }) => {
+  const incrView = async ()=>{
+    if(data){
+      const response = await fetch(process.env.NEXT_PUBLIC_DOMAIN + '/api/blog/incrviews', {
+        method: 'POST',
+        headers: {
+          'content-type': 'application/json',
+        },
+        body: JSON.stringify({ link: slug })
+      })
     }
   }
   useEffect(() => {
-    fetchArticle();
-  }, [slug])
+    incrView()
+  }, [data])
   
   return (
     <>
@@ -75,8 +70,22 @@ const ArticlePage = ({slug }) => {
 export default ArticlePage
 export async function getServerSideProps(context) {
   const { slug } = context.params
+  const response = await fetch(process.env.NEXT_PUBLIC_DOMAIN + '/api/blog/fetchone', {
+    method: 'POST',
+    headers: {
+      'content-type': 'application/json',
+    },
+    body: JSON.stringify({ link: slug })
+  })
+  var data = await response.json();
+  if (data.success) {
+    data = data.article;
+  } else {
+    data = "";
+  }
   return {
     props: {
+      data: data,
       slug:slug
     }, // will be passed to the page component as props
   }
