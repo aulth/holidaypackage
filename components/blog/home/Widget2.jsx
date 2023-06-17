@@ -33,7 +33,7 @@ const Widget2 = ({ data, title }) => {
             <div className="w-full rounded-lg p-4 ">
                 <div className="w-full flex justify-between">
                     <h2 className="font-bold">{title}</h2>
-                    <Link href={'/blog/category/thoughts'} className="flex items-center text-red-500">View all <IoIosArrowRoundForward className='mt-1' /></Link>
+                    <Link href={`/blog/category/${title.toLowerCase()}`} className="flex items-center text-red-500">View all <IoIosArrowRoundForward className='mt-1' /></Link>
                 </div>
                 <div className="w-full overflow-x-scroll overflow-y-hidden flex gap-4 mt-4 you-might-like ">
                     {
@@ -42,7 +42,7 @@ const Widget2 = ({ data, title }) => {
                             return <div key={index} className='w-64 shrink-0'>
                                 <img src={thought.cover} className='w-full aspect-[10/7] object-cover rounded-lg' alt="" />
                                 <div className="w-full mt-1">
-                                    <Link href={`blog/article/${thought.link}`}><h2 className="font-bold">{thought.title.slice(0, 57)}{thought.title.length > 57 ? ".." : ""} </h2></Link>
+                                    <Link href={`blog/${thought.link}`}><h2 className="font-bold">{thought.title.slice(0, 57)}{thought.title.length > 57 ? ".." : ""} </h2></Link>
                                     <span className='text-sm'>{getFormattedDate(thought.createdAt)}</span>
                                 </div>
                             </div>

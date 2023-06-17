@@ -19,7 +19,7 @@ const Widget4 = ({ data, title }) => {
         <div className="w-full rounded-lg p-4">
             <div className="w-full flex justify-between">
                 <h2 className="font-bold">{title}</h2>
-                <Link href={'/blog/category/tips'} className="flex items-center text-red-500">View all <IoIosArrowRoundForward className='mt-1' /></Link>
+                <Link href={`/blog/category/${title.toLowerCase()}`} className="flex items-center text-red-500">View all <IoIosArrowRoundForward className='mt-1' /></Link>
             </div>
             <div className="w-full flex flex-wrap   mt-4">
                 {
@@ -30,7 +30,7 @@ const Widget4 = ({ data, title }) => {
                         return <div key={index} className='w-1/2 md:w-1/3 p-1'>
                             <img src={tips.cover} className='w-full aspect-[10/7] object-cover rounded-lg' alt="" />
                             <div className="w-full mt-1">
-                                <Link href={`/blog/article/${tips.link}`}><h2 className="font-bold">{tips.title.slice(0, 57)}</h2></Link>
+                                <Link href={`/blog/${tips.link}`}><h2 className="font-bold">{tips.title.slice(0, 57)}</h2></Link>
                                 <span className='text-sm'>{getFormattedDate(tips.createdAt)}</span>
                             </div>
                         </div>
