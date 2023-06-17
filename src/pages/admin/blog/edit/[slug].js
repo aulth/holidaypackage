@@ -44,7 +44,7 @@ const EditPage = ({ data }) => {
 export default EditPage
 export async function getServerSideProps(context) {
     const { slug } = context.params
-    const response = await fetch(process.env.NODE_ENV == 'production' ? 'https://mohd-usman.vercel.app/api/blog/fetchone' : 'http://localhost:3000/api/blog/fetchone', {
+    const response = await fetch(process.env.NEXT_PUBLIC_DOMAIN +'/api/blog/fetchone', {
         method: 'POST',
         headers: {
             'content-type': 'application/json',

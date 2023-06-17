@@ -64,7 +64,7 @@ export async function getServerSideProps(context) {
       headers:{
         'content-type':'application/json'
       },
-      body:JSON.stringify({adminPin:process.env.NEXT_PUBLIC_ADMIN_PIN})
+      body:JSON.stringify({adminPin: process.env.NEXT_PUBLIC_ADMIN_PIN})
     })
     var data = await response.json();
     console.log(data)
