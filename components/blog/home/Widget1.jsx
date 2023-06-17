@@ -27,7 +27,7 @@ console.log('widget 1')
                 story && story.length > 0 &&
                 <div className="w-full flex gap-4 flex-col xl:flex-row mt-4">
                     <div className='rounded-lg h-[19rem] w-full xl:w-[45%] border border-gray-200 relative flex items-end'>
-                        <img src="https://source.unsplash.com/random/?book/" className='h-full w-full object-cover rounded-lg absolute top-0' alt="" />
+                        <img src={story[0]?.cover} className='h-full w-full object-cover rounded-lg absolute top-0' alt="" />
                         <div className="w-full rounded-lg h-[19rem]  absolute top-0 bg-gradient-to-tr from-gray-700 to-transparent"></div>
                         <div className="w-full p-4 z-10 text-white">
                             <Link href={`/blog/category/${story[0].category}`} className="text-sm">{story[0].category[0].toUpperCase() + story[0].category.slice(1).toLowerCase()}</Link>
