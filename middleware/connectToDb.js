@@ -9,6 +9,5 @@ const connectToDb = async ()=>{
     }
     const db = await mongoose.connect(`${mongodburl}`)
     connection.isConnected = db.connections[0].readyState;
-
 }
 export default connectToDb;
