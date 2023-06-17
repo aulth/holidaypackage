@@ -32,35 +32,18 @@ const ArticlePage = ({ data, slug }) => {
             <title>{data.title.slice(0, 69)}</title>
             <meta name="title" content={data.title.slice(0, 69)} />
             <meta name="description" content={data.content.slice(0, 150).replace(/<[^>]+>/g, '')} />
-
-            {/* Open Graph / Facebook */}
-            <meta property="og:type" content="website" />
-            <meta property="og:url" content="https://mohd-usman.vercel.app/" />
-            <meta property="og:title" content={data.title} />
-            <meta property="og:description" content={data.content.slice(0, 150).replace(/<[^>]+>/g, '')} />
-            <meta property="og:image" content={data.cover} />
-
-            {/* Twitter */}
-            <meta property="twitter:card" content="summary_large_image" />
-            <meta property="twitter:url" content={`https://mohd-usman.vercel.app/blog/article/${data.link}`} />
-            <meta property="twitter:title" content={data.title} />
-            <meta property="twitter:description" content={data.content.slice(0, 150).replace(/<[^>]+>/g, '')} />
-            <meta property="twitter:image" content={data.cover} />
           </Head>
           <ArticleComponent data={data} />
         </>
       )}
-
       {!data && (
         <div className="container m-auto md:px-12 px-4 py-4">
           This article is not available {slug}
         </div>
       )}
-
       {data && !data.live && (
         <div className="container m-auto md:px-12 px-4 py-4">This article has been made private</div>
       )}
-
       <Footer />
     </>
   );
@@ -85,7 +68,6 @@ export async function getServerSideProps(context) {
   } else {
     data = null;
   }
-
   return {
     props: {
       data: data,
