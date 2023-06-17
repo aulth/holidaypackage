@@ -29,10 +29,9 @@ const page = ({ content }) => {
         content &&
         <>
           <Navbar />
-          <Carousel content={content} />
           <div className="container mx-auto mt-8">
-            <h2 className="text-xl text-red-600 font-bold text-center ">Holiday Packages</h2>
-            <div className="w-full grid md:grid-cols-3 grid-cols-1 gap-4 p-8 pb-4">
+            <h2 className="text-xl text-red-600 font-bold text-center mt-20 ">Holiday Packages</h2>
+            <div className="w-full grid md:grid-cols-3 grid-cols-1 gap-4 p-8 pt-4 pb-4">
               {
                 content && content.length > 0 &&
                 content.map((item, index) => {

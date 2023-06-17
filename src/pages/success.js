@@ -17,10 +17,8 @@ const page = () => {
         })
         let json = await response.json();
         if (!json.success) {
-            console.log(json.msg);
         } else {
             setData(json.data);
-            console.log(json.data)
             setPaymentCompleted(true)
             fetchItem(json.data.data.link, json.data.type);
         }
@@ -42,8 +40,6 @@ const page = () => {
     }
     const fetchItem = async (link, type) => {
         let url = `/api/${type}/getone`;
-        console.log(url)
-        console.log(link)
         let response = await fetch(url, {
             method: 'POST',
             headers: {
@@ -52,9 +48,7 @@ const page = () => {
             body: JSON.stringify({ link: link })
         })
         let json = await response.json();
-        console.log(json)
         if (json.success) {
-            console.log(json)
             if (type == 'visa') {
                 setItem(json.visa)
             } else {

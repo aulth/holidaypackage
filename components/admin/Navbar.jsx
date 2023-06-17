@@ -1,8 +1,8 @@
-import React from 'react'
+import React, { useEffect, useState } from 'react'
 import MenuOpenOutlinedIcon from '@mui/icons-material/MenuOpenOutlined';
 import CloseOutlinedIcon from '@mui/icons-material/CloseOutlined';
 const Navbar = () => {
-
+   
     const toggleMenu = () => {
         if (typeof window != undefined) {
             if (document.querySelector('#menu').classList.contains('left-full')) {

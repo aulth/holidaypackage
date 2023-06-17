@@ -1,11 +1,11 @@
 import React, { useEffect, useState } from 'react'
-import Navbar from '../../../components/Packages/Navbar'
-import Carousel from '../../../components/Carousel'
+import Navbar from '../../../../components/Navbar';
+import Carousel from '../../../../components/Carousel';
 import DoneOutlinedIcon from '@mui/icons-material/DoneOutlined';
 import Link from 'next/link';
 import { Button } from '@mui/material';
-import Footer from '../../../components/Footer';
-import NotFound from '../../../components/NotFound';
+import Footer from '../../../../components/Footer';
+import NotFound from '../../../../components/NotFound';
 const page = ({ data, allPackage }) => {
     useEffect(() => {
 
@@ -32,9 +32,8 @@ const page = ({ data, allPackage }) => {
                 data &&
                 <>
                     <Navbar />
-                    <Carousel content={allPackage} />
                     <div className="container mx-auto mt-8">
-                        <h2 className="text-xl text-red-600 font-bold text-center ">{data && data.length > 0 && data[0].country} Packages</h2>
+                        <h2 className="text-xl text-red-600 font-bold text-center mt-20 ">{data && data.length > 0 && data[0].country} Packages</h2>
                         <div className="w-full grid md:grid-cols-3 grid-cols-1 gap-4 p-8 pb-4">
                             {
                                 data && data.length > 0 &&

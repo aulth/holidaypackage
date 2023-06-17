@@ -162,14 +162,17 @@ const page = ({ data, allPackages, link }) => {
                                 <InclusionsExclusions content={data} />
                             </div>
                             {/* Flights  */}
-                            <div id='flights' className="w-full flex scroll-mt-[120px]  flex-col my-4">
-                                <h2 className="text-xl font-bold text-red-600 uppercase">Flights</h2>
-                                <Flights content={data} />
-                            </div>
+                            {
+                                data.flights && Object.keys(data.flights).length>0 &&
+                                    <div id='flights' className="w-full flex scroll-mt-[120px]  flex-col my-4">
+                                        <h2 className="text-xl font-bold text-red-600 uppercase">Flights</h2>
+                                        <Flights content={data} />
+                                    </div>
+                            }
                             {/* Date & Prices */}
                             <div id='dateAndPrice' className="w-full flex scroll-mt-[120px]  flex-col my-4">
                                 <h2 className="text-xl font-bold text-red-600 uppercase">Date & Prices</h2>
-                                <DateComponent  content={data} />
+                                <DateComponent content={data} />
                                 <Pricing content={data} />
                             </div>
                             <div id='gallery' className="w-full flex  scroll-mt-[120px]  flex-col my-4">
@@ -218,7 +221,7 @@ export async function getServerSideProps(context) {
         props: {
             data: data,
             allPackages: allPackages,
-            link:slug
+            link: slug
         }, // will be passed to the page component as props
     }
 }

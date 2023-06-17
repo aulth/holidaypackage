@@ -17,10 +17,14 @@ import SpaceDashboardRoundedIcon from '@mui/icons-material/SpaceDashboardRounded
 import CloseOutlinedIcon from '@mui/icons-material/CloseOutlined';
 import MenuRoundedIcon from '@mui/icons-material/MenuRounded';
 import { useUserContext } from '../../cotext/contextapi';
+import {ImBlog} from 'react-icons/im'
 import Link from 'next/link';
-const Sidebar = ({activeTab, activeTabSecondary}) => {
+import { Category, Edit, LinkOffSharp, LinkOutlined, MenuBookOutlined, Settings } from '@mui/icons-material';
+const Sidebar = ({ activeTab, activeTabSecondary }) => {
     const [packageOpen, setPackageOpen] = useState(true)
     const [visaOpen, setVisaOpen] = useState(true);
+    const [blogOpen, setBlogOpen] = useState(true)
+    const [settingOpen, setSettingOpen] = useState(true)
     const toggleSidebar = () => {
         if (typeof window != undefined) {
             let sidebar = document.querySelector('#sidebar');
@@ -35,7 +39,7 @@ const Sidebar = ({activeTab, activeTabSecondary}) => {
     }
     return (
         <>
-            <div id="sidebar" className="h-screen bg-[rgb(246,248,252)] z-20  duration-150 -left-full p-2 md:w-full w-[300px] md:static fixed  border-r">
+            <div id="sidebar" className="h-screen bg-[rgb(246,248,252)] overflow-y-auto z-20  duration-150 -left-full p-2 md:w-full w-[300px] md:static fixed  border-r">
                 <div className="flex gap-2 items-center">
                     <div className="flex justify-between w-full p-2">
                         <div>
@@ -55,13 +59,13 @@ const Sidebar = ({activeTab, activeTabSecondary}) => {
                     component="nav"
                     aria-labelledby="nested-list-subheader"
                 >
-                    <ListItemButton href='/admin' selected={activeTab=='home'}>
+                    <ListItemButton href='/admin' selected={activeTab == 'home'}>
                         <ListItemIcon>
                             <HomeRoundedIcon />
                         </ListItemIcon>
                         <ListItemText primary="Home" />
                     </ListItemButton>
-                    <ListItemButton  selected={activeTab=='package'} onClick={() => { setPackageOpen(!packageOpen) }}>
+                    <ListItemButton selected={activeTab == 'package'} onClick={() => { setPackageOpen(!packageOpen) }}>
                         <ListItemIcon>
                             <ScatterPlotRoundedIcon />
                         </ListItemIcon>
@@ -70,13 +74,13 @@ const Sidebar = ({activeTab, activeTabSecondary}) => {
                     </ListItemButton>
                     <Collapse in={packageOpen} timeout="auto" unmountOnExit>
                         <List component="div" disablePadding>
-                            <ListItemButton  href={`/admin/package`}  selected={activeTabSecondary?activeTabSecondary=='packageview':false} sx={{ pl: 4 }}>
+                            <ListItemButton href={`/admin/package`} selected={activeTabSecondary ? activeTabSecondary == 'packageview' : false} sx={{ pl: 4 }}>
                                 <ListItemIcon>
                                     <VisibilityRoundedIcon />
                                 </ListItemIcon>
                                 <ListItemText primary="View" />
                             </ListItemButton>
-                            <ListItemButton href={`/admin/package/add`}   selected={activeTabSecondary?activeTabSecondary=='packageadd':false} sx={{ pl: 4 }}>
+                            <ListItemButton href={`/admin/package/add`} selected={activeTabSecondary ? activeTabSecondary == 'packageadd' : false} sx={{ pl: 4 }}>
                                 <ListItemIcon>
                                     <PlaylistAddRoundedIcon />
                                 </ListItemIcon>
@@ -84,7 +88,7 @@ const Sidebar = ({activeTab, activeTabSecondary}) => {
                             </ListItemButton>
                         </List>
                     </Collapse>
-                    <ListItemButton  selected={activeTab=='visa'}  onClick={() => { setVisaOpen(!visaOpen) }}>
+                    <ListItemButton selected={activeTab == 'visa'} onClick={() => { setVisaOpen(!visaOpen) }}>
                         <ListItemIcon>
                             <FaPassport />
                         </ListItemIcon>
@@ -93,17 +97,69 @@ const Sidebar = ({activeTab, activeTabSecondary}) => {
                     </ListItemButton>
                     <Collapse in={visaOpen} timeout="auto" unmountOnExit>
                         <List component="div" disablePadding>
-                            <ListItemButton  href={`/admin/visa`} selected={activeTabSecondary?activeTabSecondary=='visaview':false} sx={{ pl: 4 }}>
+                            <ListItemButton href={`/admin/visa`} selected={activeTabSecondary ? activeTabSecondary == 'visaview' : false} sx={{ pl: 4 }}>
                                 <ListItemIcon>
                                     <VisibilityRoundedIcon />
                                 </ListItemIcon>
                                 <ListItemText primary="View" />
                             </ListItemButton>
-                            <ListItemButton   href={`/admin/visa/add`} selected={activeTabSecondary?activeTabSecondary=='visaadd':false} sx={{ pl: 4 }}>
+                            <ListItemButton href={`/admin/visa/add`} selected={activeTabSecondary ? activeTabSecondary == 'visaadd' : false} sx={{ pl: 4 }}>
                                 <ListItemIcon>
                                     <PlaylistAddRoundedIcon />
                                 </ListItemIcon>
                                 <ListItemText primary="Add" />
+                            </ListItemButton>
+                        </List>
+                    </Collapse>
+                    <ListItemButton selected={activeTab == 'blog'} onClick={() => { setBlogOpen(!blogOpen) }}>
+                        <ListItemIcon>
+                            <ImBlog />
+                        </ListItemIcon>
+                        <ListItemText primary="Blog" />
+                        {visaOpen ? <ExpandLess /> : <ExpandMore />}
+                    </ListItemButton>
+                    <Collapse in={blogOpen} timeout="auto" unmountOnExit>
+                        <List component="div" disablePadding>
+                            <ListItemButton href={`/admin/blog`} selected={activeTabSecondary ? activeTabSecondary == 'View' : false} sx={{ pl: 4 }}>
+                                <ListItemIcon>
+                                    <VisibilityRoundedIcon />
+                                </ListItemIcon>
+                                <ListItemText primary="View" />
+                            </ListItemButton>
+                            <ListItemButton href={`/admin/blog/publish`} selected={activeTabSecondary ? activeTabSecondary == 'blogadd' : false} sx={{ pl: 4 }}>
+                                <ListItemIcon>
+                                    <PlaylistAddRoundedIcon />
+                                </ListItemIcon>
+                                <ListItemText primary="New Blog" />
+                            </ListItemButton>
+                            <ListItemButton href={`/admin/blog/edit`} selected={activeTabSecondary ? activeTabSecondary == 'edit' : false} sx={{ pl: 4 }}>
+                                <ListItemIcon>
+                                    <Edit />
+                                </ListItemIcon>
+                                <ListItemText primary="Edit" />
+                            </ListItemButton>
+                        </List>
+                    </Collapse>
+                    <ListItemButton selected={activeTab == 'setting'} onClick={() => { setSettingOpen(!settingOpen) }}>
+                        <ListItemIcon>
+                            <Settings />
+                        </ListItemIcon>
+                        <ListItemText primary="Setting" />
+                        {settingOpen ? <ExpandLess /> : <ExpandMore />}
+                    </ListItemButton>
+                    <Collapse in={settingOpen} timeout="auto" unmountOnExit>
+                        <List component="div" disablePadding>
+                            <ListItemButton href={`/admin/setting/menu`} selected={activeTabSecondary ? activeTabSecondary == 'menu' : false} sx={{ pl: 4 }}>
+                                <ListItemIcon>
+                                    <LinkOutlined />
+                                </ListItemIcon>
+                                <ListItemText primary="Menu Link" />
+                            </ListItemButton>
+                            <ListItemButton href={`/admin/setting/widget`} selected={activeTabSecondary ? activeTabSecondary == 'widget' : false} sx={{ pl: 4 }}>
+                                <ListItemIcon>
+                                    <Category />
+                                </ListItemIcon>
+                                <ListItemText primary="Category" />
                             </ListItemButton>
                         </List>
                     </Collapse>

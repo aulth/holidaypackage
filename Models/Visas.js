@@ -1,6 +1,7 @@
 import mongoose, { Mongoose } from 'mongoose'
 const Visas = new mongoose.Schema({
     title:String,
+    country:String,
     link:String,
     gallery:Array,
     overview:String,

@@ -5,6 +5,8 @@ import Tab from '@mui/material/Tab';
 import Typography from '@mui/material/Typography';
 import Box from '@mui/material/Box';
 import OrderList from './OrderList';
+import QueryList from './QueryList';
+import QuoteList from './QuoteList';
 
 function TabPanel(props) {
     const { children, value, index, ...other } = props;
@@ -39,8 +41,8 @@ function a11yProps(index) {
     };
 }
 
-export default function Orders({allOrders, fetchAllOrders}) {
-    const [value, setValue] = React.useState(0);
+export default function Orders({allOrders, fetchAllOrders, activeIndex}) {
+    const [value, setValue] = React.useState(activeIndex?activeIndex:0);
 
     const handleChange = (event, newValue) => {
         setValue(newValue);
@@ -54,6 +56,8 @@ export default function Orders({allOrders, fetchAllOrders}) {
                         <Tab label="Orders" {...a11yProps(0)} />
                         <Tab label="Packages" {...a11yProps(1)} />
                         <Tab label="Visa" {...a11yProps(2)} />
+                        <Tab label="Query" {...a11yProps(3)} />
+                        <Tab label="Quote" {...a11yProps(4)} />
                     </Tabs>
                 </Box>
                 <TabPanel value={value} index={0}>
@@ -64,6 +68,12 @@ export default function Orders({allOrders, fetchAllOrders}) {
                 </TabPanel>
                 <TabPanel value={value} index={2}>
                     <OrderList fetchAllOrders={fetchAllOrders}  orders={allOrders?allOrders.length>0?allOrders.filter(a=>a.type=='visa'):'':''}  />
+                </TabPanel>
+                <TabPanel value={value} index={3}>
+                    <QueryList/>
+                </TabPanel>
+                <TabPanel value={value} index={4}>
+                    <QuoteList/>
                 </TabPanel>
             </Box>
         </div>

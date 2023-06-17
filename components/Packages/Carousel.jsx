@@ -136,7 +136,7 @@ const Carousel = ({ content }) => {
                         <div className="flex gap-2 my-0 items-center">
                             <div className="flex items-center gap-2">
                                 {/* <Button variant='outlined' startIcon={<FileDownloadOutlinedIcon />} className=' font-semibold border-white text-white px-2 py-1'><a href={content.itineraryLink}>Download Itinerary</a></Button> */}
-                                <Button style={{color:'white', borderColor:'white'}} onClick={handleOpen} variant='outlined' startIcon={<ForwardToInboxOutlinedIcon />}  className=' border-white  font-semibold  text-white px-2 py-1'>E-mail</Button>
+                                {/* <Button style={{color:'white', borderColor:'white'}} onClick={handleOpen} variant='outlined' startIcon={<ForwardToInboxOutlinedIcon />}  className=' border-white  font-semibold  text-white px-2 py-1'>E-mail</Button> */}
                                 <Button onClick={handleOnShare} variant='outlined' startIcon={<ShareIcon />} style={{color:'white', borderColor:'white'}} className=' border-white  font-semibold  text-white px-2 py-1'>Share</Button>
                             </div>
                         </div>

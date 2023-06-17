@@ -35,7 +35,8 @@ const Navbar = () => {
                             <li className='w-full md:w-auto hover:bg-gray-100 hover:text-black duration-100 p-2 rounded'><Link href="/visa" className=''>Visa</Link></li>
                             <li className='w-full md:w-auto hover:bg-gray-100 hover:text-black duration-100 p-2 rounded'><Link href="/about" className=''>About</Link></li>
                             <li className='w-full md:w-auto hover:bg-gray-100 hover:text-black duration-100 p-2 rounded'><Link href="/contact" className=''>Contact</Link></li>
-                            <li className='bg-red-600 border flex md:justify-center items-center md:px-4  md:border-none border-red-600 text-white h-[60px] md:w-auto w-full px-4 md:rounded-none rounded' ><a href="#" className=''>Get a quote</a></li>
+                            <li className='w-full md:w-auto hover:bg-gray-100 hover:text-black duration-100 p-2 rounded'><Link href="/blog" className=''>Blog</Link></li>
+                            <li className='bg-red-600 border flex md:justify-center items-center md:px-4  md:border-none border-red-600 text-white h-[60px] md:w-auto w-full px-4 md:rounded-none rounded' ><Link href="/get-a-quote" className=''>Get a quote</Link></li>
                         </ul>
                     </nav>
                 </div>

@@ -33,8 +33,8 @@ const page = ({ content }) => {
         <>
           <Navbar />
           <div className="container mx-auto mt-[80px] my-8 mb-0 pb-8">
-                <h2 className="text-xl text-red-600 font-bold text-center">Visas</h2>
-                <div className="w-full grid md:grid-cols-3 grid-cols-1 gap-4 p-8 pb-0">
+                <h2 className="text-xl text-red-600 font-bold text-center mt-20">Visas</h2>
+                <div className="w-full grid md:grid-cols-3 grid-cols-1 gap-4 pt-4 p-8 pb-0">
                     {
                         content && content.length > 0 &&
                         content.map((item, index) => {
