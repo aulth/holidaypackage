@@ -4,7 +4,7 @@ import Link from 'next/link';
 const YouMightLike = ({ category }) => {
     const [data, setData] = useState();
     const fetchData = async () => {
-        const response = await fetch(process.env.NEXT_PUBLIC_DOMAIN+'/api/blog/fetchcategory', {
+        const response = await fetch('/api/blog/fetchcategory', {
             method: 'POST',
             headers: {
                 'content-type': 'application/json',
