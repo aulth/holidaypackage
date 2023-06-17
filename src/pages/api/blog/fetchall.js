@@ -1,6 +1,7 @@
 // Next.js API route support: https://nextjs.org/docs/api-routes/introduction
 import connectToDb from "../../../../middleware/connectToDb";
-import Article from "models/Article";
+import Article from "../../../../Models/Article";
+
 connectToDb();
 export default async function handler(req, res) {
     let article = await Article.find({})
