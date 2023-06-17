@@ -65,19 +65,12 @@ export async function getServerSideProps(context) {
   var data = await response.json();
   if (data.success) {
     data = data.article;
-    const response = await fetch(process.env.NEXT_PUBLIC_DOMAIN + '/api/blog/incrviews', {
-      method: 'POST',
-      headers: {
-        'content-type': 'application/json',
-      },
-      body: JSON.stringify({ link: slug })
-    })
   } else {
     data = "";
   }
   return {
     props: {
-      data: data
+      data: data,
     }, // will be passed to the page component as props
   }
 }
