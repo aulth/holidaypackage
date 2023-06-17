@@ -55,7 +55,7 @@ const ArticlePage = ({ data }) => {
 export default ArticlePage
 export async function getServerSideProps(context) {
   const { slug } = context.params
-  const response = await fetch(process.env.process.env.NEXT_PUBLIC_DOMAIN + 'api/blog/fetchone', {
+  const response = await fetch(process.env.process.env.NEXT_PUBLIC_DOMAIN + '/api/blog/fetchone', {
     method: 'POST',
     headers: {
       'content-type': 'application/json',

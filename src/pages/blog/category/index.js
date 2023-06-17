@@ -10,7 +10,7 @@ const Index = () => {
         <>
             <Head>
                 {/* <!-- Primary Meta Tags --> */}
-                <title>Category - Mohd Usman Blog</title>
+                <title>Category - Blog</title>
                 <meta name="title" content="Category - Mohd Usman Blog" />
                 <meta name="description" content="Discover diverse content on our category page. From tips to stories, thoughts to tech, join the conversation and expand your knowledge with our informative and engaging pieces." />
 
