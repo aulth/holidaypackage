@@ -39,7 +39,7 @@ const CustomQuote = () => {
             <div className="w-full min-h-screen overflow-y-auto md:mt-0 mt-[56] p-4 bg-[rgb(246,248,252)]">
                 <h2 className="font-bold text-lg text-center text-red-600 mt-16">Get A Custom Quote for Your Desired Holiday Package</h2>
                 <form onSubmit={handleSubmit} className="">
-                    <div className="grid gap-4 grid-cols-1 md:grid-cols-2 bg-white rounded p-4 mt-5">
+                    <div className="grid md:gap-4 gap-2 grid-cols-1 md:grid-cols-2 bg-white rounded p-4 mt-5">
                         <TextField required className='w-full' inputProps={{ required: true }} onChange={handleChange} name='name' label="Name" variant="outlined" />
                         <TextField required className='w-full' inputProps={{ required: true }} onChange={handleChange} name='email' label="Email" variant="outlined" />
                         <TextField required className='w-full' inputProps={{ required: true, inputMode: 'numeric' }} onChange={handleChange} name='phone' label="Phone" variant="outlined" />
