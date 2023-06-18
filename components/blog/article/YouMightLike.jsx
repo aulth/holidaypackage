@@ -15,6 +15,7 @@ const YouMightLike = ({ category }) => {
         console.log(json)
         if(json.success){
             json = json.articles;
+            json = json.filter(item=>item.live)
             json?.sort((a, b) => b.views - a.views);
             setData(json);
         }
