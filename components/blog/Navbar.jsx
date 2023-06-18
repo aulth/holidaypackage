@@ -4,25 +4,34 @@ import { MdOutlineMenuOpen, MdOutlineClose } from 'react-icons/md'
 import { HiOutlineMail } from 'react-icons/hi'
 import Link from 'next/link'
 import { Skeleton } from '@mui/material'
+import Cookies from 'js-cookie'
 const Navbar = () => {
     const [menuClicked, setMenuClicked] = useState(null);
     const [data, setData] = useState()
     const fetchMenuLink = async () => {
-        const response = await fetch('/api/setting/menulink/fetch');
-        let json = await response.json();
-        if (json.success) {
-            let menuLinkData = json.menuLink
-            const combinedMenuLinks = [];
+        if (Cookies.get('menuLinks')) {
+            setData(JSON.parse(Cookies.get('menuLinks')))
+            console.log('setting link from cookie')
+        } else {
+            const response = await fetch('/api/setting/menulink/fetch');
+            let json = await response.json();
+            if (json.success) {
+                let menuLinkData = json.menuLink
+                const combinedMenuLinks = [];
 
-            for (let i = 1; i <= 5; i++) {
-                const menuTitle = menuLinkData[`menuTitle${i}`];
-                const menuLink = menuLinkData[`menuLink${i}`];
+                for (let i = 1; i <= 5; i++) {
+                    const menuTitle = menuLinkData[`menuTitle${i}`];
+                    const menuLink = menuLinkData[`menuLink${i}`];
 
-                if (menuTitle && menuLink) {
-                    combinedMenuLinks.push({ title: menuTitle, link: menuLink });
+                    if (menuTitle && menuLink) {
+                        combinedMenuLinks.push({ title: menuTitle, link: menuLink });
+                    }
                 }
+                setData(combinedMenuLinks);
+                console.log('setting link from api')
+                Cookies.set('menuLinks', JSON.stringify(combinedMenuLinks));
+                console.log(Cookies.get('menuLinks'))
             }
-            setData(combinedMenuLinks)
         }
     }
     useEffect(() => {
