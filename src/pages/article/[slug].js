@@ -1,6 +1,5 @@
 import React from 'react'
 import Navbar from '../../../components/blog/Navbar'
-import ArticleComponent from '../../../components/blog/article/ArticleComponent'
 
 const page = ({ data }) => {
     return (
@@ -14,8 +13,6 @@ const page = ({ data }) => {
 export default page
 
 export async function getServerSideProps(context) {
-    const {slug} = context.params
-    console.log(slug)
     const response = await fetch(`${process.env.NEXT_PUBLIC_DOMAIN}/api/blog/fetchone`, {
         method: 'POST',
         headers: {
