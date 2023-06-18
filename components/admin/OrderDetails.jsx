@@ -57,7 +57,7 @@ const OrderDetails = ({ data }) => {
                         <div className="grid gap-2 md:grid-cols-2 text-sm grid-cols-1">
                             <div className="flex gap-2 items-start">
                                 <h3 className="font-semibold text-left">Title:</h3>
-                                <h3 className="text-left  col-span-2 text-red-400 underline"><Link href={`${data.type == 'visa' ? '/visa' : '/package'}/${data.data.link}`}>{data.data.title}</Link></h3>
+                                <h3 className="text-left  col-span-2 text-red-400 underline"><Link target='_blank' href={`${data.type == 'visa' ? '/visa' : '/package'}/${data.data.link}`}>{data.data.title}</Link></h3>
                             </div>
                             <div className="flex gap-2 items-start">
                                 <h3 className="font-semibold text-left">id:</h3>
