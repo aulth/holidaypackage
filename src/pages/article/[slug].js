@@ -6,6 +6,7 @@ const page = ({ data }) => {
         <>
             <Navbar />
             {data && JSON.stringify(data)}
+            {!data && 'No Data'}
         </>
     )
 }
@@ -13,12 +14,13 @@ const page = ({ data }) => {
 export default page
 
 export async function getServerSideProps(context) {
+    const {slug} = context.params
     const response = await fetch(`${process.env.NEXT_PUBLIC_DOMAIN}/api/blog/fetchone`, {
         method: 'POST',
         headers: {
             'content-type': 'application/json',
         },
-        body: JSON.stringify({ link: 'the-power-of-exercise-physical-and-mental-benefits' }),
+        body: JSON.stringify({ link: slug }),
     });
 
     let data = await response.json();
