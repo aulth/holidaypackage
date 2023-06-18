@@ -1,80 +1,37 @@
-import Navbar from '../../../components/blog/Navbar';
-import React, { useEffect } from 'react';
-import Footer from '../../../components/Footer';
-import ArticleComponent from '../../../components/blog/article/ArticleComponent';
-import Head from 'next/head';
+import React from 'react'
+import Navbar from '../../../components/blog/Navbar'
+import ArticleComponent from '../../../components/blog/article/ArticleComponent'
 
-const ArticlePage = ({ data, slug }) => {
-  const incrView = async () => {
-    if (data) {
-      const response = await fetch('/api/blog/incrviews', {
-        method: 'POST',
-        headers: {
-          'content-type': 'application/json',
-        },
-        body: JSON.stringify({ link: slug }),
-      });
-    }
-  };
-
-  useEffect(() => {
-    incrView();
-  }, [data]);
-
-  return (
-    <>
-      <Navbar />
-      <p>
-        {slug}
-      </p>
-      {data && data.live && (
+const page = ({ data }) => {
+    return (
         <>
-          <Head>
-            {/* Meta tags */}
-            <title>{data.title.slice(0, 69)}</title>
-            <meta name="title" content={data.title.slice(0, 69)} />
-            <meta name="description" content={data.content.slice(0, 150).replace(/<[^>]+>/g, '')} />
-          </Head>
-          <ArticleComponent data={data} />
+            <Navbar />
+            {data && JSON.stringify(data)}
         </>
-      )}
-      {!data && (
-        <div className="container m-auto md:px-12 px-4 py-4">
-          This article is not available {slug}
-        </div>
-      )}
-      {data && !data.live && (
-        <div className="container m-auto md:px-12 px-4 py-4">This article has been made private</div>
-      )}
-      <Footer />
-    </>
-  );
-};
+    )
+}
 
-export default ArticlePage;
+export default page
 
 export async function getServerSideProps(context) {
-  const { slug } = context.params;
-  // const response = await fetch(`${process.env.NEXT_PUBLIC_DOMAIN}/api/blog/fetchone`, {
-  //   method: 'POST',
-  //   headers: {
-  //     'content-type': 'application/json',
-  //   },
-  //   body: JSON.stringify({ link: slug }),
-  // });
+    const response = await fetch(`${process.env.NEXT_PUBLIC_DOMAIN}/api/blog/fetchone`, {
+        method: 'POST',
+        headers: {
+            'content-type': 'application/json',
+        },
+        body: JSON.stringify({ link: 'the-power-of-exercise-physical-and-mental-benefits' }),
+    });
 
-  // let data = await response.json();
-
-  // if (data.success) {
-  //   data = data.article;
-  // } else {
-  //   data = null;
-  // }
-  const data = "";
-  return {
-    props: {
-      data: data,
-      slug: slug,
-    },
-  };
+    let data = await response.json();
+    console.log(data)
+    if (data.success) {
+        data = data.article;
+    } else {
+        data = null;
+    }
+    return {
+        props: {
+            data: data,
+        },
+    }
 }
