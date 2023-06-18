@@ -4,11 +4,8 @@ import MenuRoundedIcon from '@mui/icons-material/MenuRounded';
 import Sidebar from '../../../../../components/admin/Sidebar';
 import { useUserContext } from '../../../../../cotext/contextapi';
 import Edit from '../../../../../components/blog/admin/Edit';
-import { useRouter } from 'next/router';
-const EditPage = () => {
-    const router = useRouter();
+const EditPage = ({slug}) => {
     const [data, setData] = useState('')
-    const {slug} = router.query
     const fetchDetails = async ()=>{
         const response = await fetch('/api/blog/fetchone', {
             method: 'POST',
@@ -17,11 +14,12 @@ const EditPage = () => {
             },
             body: JSON.stringify({ link: slug })
         })
-        var data = await response.json();
-        if (data.success) {
-            setData(data.article)
+        var json = await response.json();
+        console.log(json)
+        if (json.success) {
+            setData(json.article)
         } else {
-            data = "";
+            setData("")
         }
     }
     const toggleSidebar = () => {
@@ -60,3 +58,11 @@ const EditPage = () => {
 }
 
 export default EditPage
+export async function getServerSideProps(context){
+    const {slug} = context.params;
+    return {
+        props:{
+            slug:slug
+        }
+    }
+}
