@@ -1,6 +1,5 @@
 import React, { useEffect, useState } from 'react'
 import AdminPostItem from './AdminPostItem'
-import { RiLockPasswordLine } from 'react-icons/ri'
 import toast, { Toaster } from 'react-hot-toast';
 
 const Admin = ({ data }) => {

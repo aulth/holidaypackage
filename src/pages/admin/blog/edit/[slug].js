@@ -4,10 +4,26 @@ import MenuRoundedIcon from '@mui/icons-material/MenuRounded';
 import Sidebar from '../../../../../components/admin/Sidebar';
 import { useUserContext } from '../../../../../cotext/contextapi';
 import Edit from '../../../../../components/blog/admin/Edit';
-const EditPage = ({ data }) => {
-    const [packageOpen, setPackageOpen] = useState(true)
-    const [visaOpen, setVisaOpen] = useState(true);
-    const {allOrders, fetchAllOrders} = useUserContext();
+import { useRouter } from 'next/router';
+const EditPage = () => {
+    const router = useRouter();
+    const [data, setData] = useState('')
+    const {slug} = router.query
+    const fetchDetails = async ()=>{
+        const response = await fetch('/api/blog/fetchone', {
+            method: 'POST',
+            headers: {
+                'content-type': 'application/json',
+            },
+            body: JSON.stringify({ link: slug })
+        })
+        var data = await response.json();
+        if (data.success) {
+            setData(data.article)
+        } else {
+            data = "";
+        }
+    }
     const toggleSidebar = () => {
         if (typeof window != undefined) {
             let sidebar = document.querySelector('#sidebar');
@@ -21,7 +37,7 @@ const EditPage = ({ data }) => {
         }
     }
     useEffect(() => {
-      fetchAllOrders();
+      fetchDetails();
     }, [])
     return (
         <>
@@ -34,7 +50,9 @@ const EditPage = ({ data }) => {
                         </IconButton>
                         <h2 className="font-bold">Admin</h2>
                     </div>
-                    <Edit article={data} />
+                    {
+                        data && <Edit article={data} />
+                    }
                 </div>
             </div>
         </>
@@ -42,24 +60,3 @@ const EditPage = ({ data }) => {
 }
 
 export default EditPage
-export async function getServerSideProps(context) {
-    const { slug } = context.params
-    const response = await fetch(process.env.NEXT_PUBLIC_DOMAIN +'/api/blog/fetchone', {
-        method: 'POST',
-        headers: {
-            'content-type': 'application/json',
-        },
-        body: JSON.stringify({ link: slug })
-    })
-    var data = await response.json();
-    if (data.success) {
-        data = data.article;
-    } else {
-        data = "";
-    }
-    return {
-        props: {
-            data: data
-        }, // will be passed to the page component as props
-    }
-}
