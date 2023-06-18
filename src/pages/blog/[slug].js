@@ -24,7 +24,9 @@ const ArticlePage = ({ data, slug }) => {
   return (
     <>
       <Navbar />
-
+      <p>
+        {slug}
+      </p>
       {data && data.live && (
         <>
           <Head>
@@ -53,21 +55,22 @@ export default ArticlePage;
 
 export async function getServerSideProps(context) {
   const { slug } = context.params;
-  const response = await fetch(process.env.NEXT_PUBLIC_DOMAIN + '/api/blog/fetchone', {
-    method: 'POST',
-    headers: {
-      'content-type': 'application/json',
-    },
-    body: JSON.stringify({ link: slug }),
-  });
+  // const response = await fetch(`${process.env.NEXT_PUBLIC_DOMAIN}/api/blog/fetchone`, {
+  //   method: 'POST',
+  //   headers: {
+  //     'content-type': 'application/json',
+  //   },
+  //   body: JSON.stringify({ link: slug }),
+  // });
 
-  let data = await response.json();
+  // let data = await response.json();
 
-  if (data.success) {
-    data = data.article;
-  } else {
-    data = null;
-  }
+  // if (data.success) {
+  //   data = data.article;
+  // } else {
+  //   data = null;
+  // }
+  const data = "";
   return {
     props: {
       data: data,
