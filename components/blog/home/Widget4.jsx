@@ -30,7 +30,7 @@ const Widget4 = ({ data, title }) => {
                         return <div key={index} className='w-1/2 md:w-1/3 p-1'>
                             <img src={tips.cover} className='w-full aspect-[10/7] object-cover rounded-lg' alt="" />
                             <div className="w-full mt-1">
-                                <Link href={`/blog/${tips.link}`}><h2 className="font-bold">{tips.title.slice(0, 57)}</h2></Link>
+                                <Link href={`/blog/article/${tips.link}`}><h2 className="font-bold">{tips.title.slice(0, 57)}</h2></Link>
                                 <span className='text-sm'>{getFormattedDate(tips.createdAt)}</span>
                             </div>
                         </div>

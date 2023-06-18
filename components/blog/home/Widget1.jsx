@@ -31,7 +31,7 @@ console.log('widget 1')
                         <div className="w-full rounded-lg h-[19rem]  absolute top-0 bg-gradient-to-tr from-gray-700 to-transparent"></div>
                         <div className="w-full p-4 z-10 text-white">
                             <Link href={`/blog/category/${story[0].category}`} className="text-sm">{story[0].category[0].toUpperCase() + story[0].category.slice(1).toLowerCase()}</Link>
-                            <Link href={`/blog/${story[0].link}`} ><h2 className="font-bold text-xl">{story[0].title.slice(0, 100)}{story[0].title.length > 100 ? ".." : ""}</h2></Link>
+                            <Link href={`/blog/article/${story[0].link}`} ><h2 className="font-bold text-xl">{story[0].title.slice(0, 100)}{story[0].title.length > 100 ? ".." : ""}</h2></Link>
                             <span className='text-sm'>{getFormattedDate(story[0].createdAt)}</span>
                         </div>
                     </div>
