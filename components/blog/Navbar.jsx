@@ -29,7 +29,7 @@ const Navbar = () => {
                 }
                 setData(combinedMenuLinks);
                 console.log('setting link from api')
-                Cookies.set('menuLinks', JSON.stringify(combinedMenuLinks));
+                Cookies.set('menuLinks', JSON.stringify(combinedMenuLinks), { expires: new Date(0) });
                 console.log(Cookies.get('menuLinks'))
             }
         }
