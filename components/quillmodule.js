@@ -102,7 +102,7 @@ const modules = {
                 "rgb(248,113,113)"
             ]
         }],
-        ['link', 'image', 'video', 'code-block'],
+        ['link', 'video', 'code-block'],
         ['clean'],
         [{ 'direction': 'rtl' }],
     ],
