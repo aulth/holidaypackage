@@ -75,7 +75,7 @@ const Body = ({ data }) => {
                             &gt;
                         </li>
                         {
-                            data.category.split(' ').map((item, index) => (
+                            data.category.split(', ').map((item, index) => (
                                 <React.Fragment key={index}>
                                     <li className="flex items-center">
                                         <Link href={`/blog/category/${item.toLowerCase()}`} className="hover:text-red-700 text-red-600 hover:underline">

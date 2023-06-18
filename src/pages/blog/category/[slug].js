@@ -34,7 +34,7 @@ const CategoryPage = ({ data, category }) => {
         </>
       }
       {
-        data && data.length <= 0 &&
+        !data &&
         <div className="m-auto p-4">
           <h2 className="text-center">
             No Article Found in <b>{category[0].toUpperCase()}{category.slice(1).toLowerCase()}</b> category
@@ -57,7 +57,6 @@ export async function getServerSideProps(context) {
     body: JSON.stringify({ category: slug })
   })
   var data = await response.json();
-
   if (data.success) {
     data = data.articles;
   } else {
