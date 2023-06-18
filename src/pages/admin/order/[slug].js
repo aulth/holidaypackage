@@ -2,11 +2,8 @@ import React, { useState, useEffect } from 'react'
 import IconButton from '@mui/material/IconButton';
 import MenuRoundedIcon from '@mui/icons-material/MenuRounded';
 import OrderDetails from '../../../../components/admin/OrderDetails';
-import { useRouter } from 'next/router';
 import Sidebar from '../../../../components/admin/Sidebar';
-const page = () => {
-    const router = useRouter();
-    const {slug} = router.query
+const page = ({slug}) => {
     const [data, setData] = useState('')
     const toggleSidebar = () => {
         if (typeof window != undefined) {
@@ -21,7 +18,7 @@ const page = () => {
         }
     }
     const fetchOrder = async ()=>{
-        const response = await fetch(process.env.NEXT_PUBLIC_DOMAIN + '/api/booking/getone', {
+        const response = await fetch('/api/booking/getone', {
             method: 'POST',
             headers: {
                 'content-type': 'application/json',
@@ -36,6 +33,7 @@ const page = () => {
         }
     }
     useEffect(() => {
+        fetchOrder();
     }, [])
     return (
         <>
@@ -68,12 +66,11 @@ const page = () => {
 }
 
 export default page
-export async function getServerSideProps(context) {
-    const { slug } = context.params;
-    
+export async function getServerSideProps(context){
+    const {slug} = context.params;
     return {
-        props: {
-            data: json,
-        }, // will be passed to the page component as props
+        props:{
+            slug:slug
+        }
     }
 }

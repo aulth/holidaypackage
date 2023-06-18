@@ -4,7 +4,10 @@ import MenuRoundedIcon from '@mui/icons-material/MenuRounded';
 import Sidebar from '../../../../../components/admin/Sidebar';
 import { useUserContext } from '../../../../../cotext/contextapi';
 import Edit from '../../../../../components/blog/admin/Edit';
-const EditPage = ({slug}) => {
+import { useRouter } from 'next/router';
+const EditPage = () => {
+    const router = useRouter();
+    const {slug} = router.query;
     const [data, setData] = useState('')
     const fetchDetails = async ()=>{
         const response = await fetch('/api/blog/fetchone', {
@@ -36,7 +39,7 @@ const EditPage = ({slug}) => {
     }
     useEffect(() => {
       fetchDetails();
-    }, [])
+    }, [slug])
     return (
         <>
             <div className="container mx-auto h-screen grid grid-cols-1 md:grid-cols-5">
@@ -58,11 +61,3 @@ const EditPage = ({slug}) => {
 }
 
 export default EditPage
-export async function getServerSideProps(context){
-    const {slug} = context.params;
-    return {
-        props:{
-            slug:slug
-        }
-    }
-}
