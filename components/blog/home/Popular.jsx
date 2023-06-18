@@ -35,7 +35,7 @@ const Popular = () => {
                     <div className="w-full rounded-lg h-60  absolute top-0 bg-gradient-to-tr from-gray-700 to-transparent"></div>
                     <div className="w-full p-4 z-10 text-white">
                         <button className="text-sm">{data && data[0]?.category[0].toUpperCase()}{data && data[0]?.category.slice(1).toLowerCase()}</button>
-                        <Link href={`/blog/${data && data[0]?.link}`} ><h2 className="font-bold text-xl">{data && data[0]?.title.slice(0, 58)}{data && data[0]?.title.length > 57 ? ".." : ""}</h2></Link>
+                        <Link href={`/blog/article/${data && data[0]?.link}`} ><h2 className="font-bold text-xl">{data && data[0]?.title.slice(0, 58)}{data && data[0]?.title.length > 57 ? ".." : ""}</h2></Link>
                         <span className='text-sm'>{getFormattedDate(data && data[0]?.createdAt)}</span>
                     </div>
                 </div>

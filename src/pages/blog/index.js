@@ -37,7 +37,7 @@ const Blog = ({data}) => {
 
 export default Blog
 export async function getServerSideProps(context) {
-  const response = await fetch(process.env.NODE_ENV == 'production' ? 'https://mohd-usman.vercel.app/api/blog/fetchall' : 'http://localhost:3000/api/blog/fetchall')
+  const response = await fetch(process.env.NEXT_PUBLIC_DOMAIN+'/api/blog/fetchall')
   var data = await response.json();
   console.log(data)
   if (data.success) {
