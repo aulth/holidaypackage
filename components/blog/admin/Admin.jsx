@@ -22,11 +22,12 @@ const Admin = ({ data }) => {
             const adminPass = localStorage.getItem('usmanBlogPass');
             if (adminPass == process.env.NEXT_PUBLIC_ADMIN_PIN) {
                 setAuthorized(true)
+                fetchAll();
             }
         }
     }, [])
     const fetchAll = async () => {
-        const response = await fetch('/api/blog/securefetch', {
+        const response = await fetch('/api/blog/fetchall', {
             method: 'POST',
             headers: {
                 'content-type': 'application/json'

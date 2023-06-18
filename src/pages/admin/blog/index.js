@@ -20,7 +20,7 @@ import { useUserContext } from '../../../../cotext/contextapi';
 import View from '../../../../components/admin/Packages/View';
 import Sidebar from '../../../../components/admin/Sidebar';
 import Admin from '../../../../components/blog/admin/Admin';
-const page = ({data}) => {
+const page = () => {
     const [packageOpen, setPackageOpen] = useState(true)
     const [visaOpen, setVisaOpen] = useState(true);
     const { allOrders, fetchAllOrders } = useUserContext();
@@ -50,7 +50,7 @@ const page = ({data}) => {
                         </IconButton>
                         <h2 className="font-bold">Admin</h2>
                     </div>
-                    <Admin data={data} />
+                    <Admin />
                 </div>
             </div>
         </>
@@ -58,25 +58,3 @@ const page = ({data}) => {
 }
 
 export default page
-export async function getServerSideProps(context) {
-    const response = await fetch(process.env.NEXT_PUBLIC_DOMAIN + '/api/blog/securefetch', {
-      method:'POST',
-      headers:{
-        'content-type':'application/json'
-      },
-      body:JSON.stringify({adminPin: process.env.NEXT_PUBLIC_ADMIN_PIN})
-    })
-    var data = await response.json();
-    console.log(data)
-    if (data.success) {
-      data = data.article;
-    } else {
-      data = "";
-    }
-    console.log(data)
-    return {
-      props: {
-        data: data
-      }, // will be passed to the page component as props
-    }
-  }
