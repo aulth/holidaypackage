@@ -1,11 +1,12 @@
 import React from 'react'
 import Navbar from '../../../components/blog/Navbar'
+import ArticleComponent from '../../../components/blog/article/ArticleComponent'
 
 const page = ({ data }) => {
     return (
         <>
             <Navbar />
-            {data && JSON.stringify(data)}
+            {data && <ArticleComponent data={data}/>}
             {!data && 'No Data'}
         </>
     )
