@@ -25,7 +25,7 @@ const ArticleComponent = ({ data }) => {
                 <div className="w-full rounded-lg bg-white ">
                     {/* <Body data={data} /> */}
                 </div>
-                <div className="w-full rounded-lg bg-white ">
+                {/* <div className="w-full rounded-lg bg-white ">
                     <YouMightLike category={data.category} />
                 </div>
                 <div className="w-full rounded-lg bg-white ">
@@ -33,7 +33,7 @@ const ArticleComponent = ({ data }) => {
                 </div>
                 <div className="w-full rounded-lg bg-white ">
                     <PostComment id={data._id} />
-                </div>
+                </div> */}
             </div>
             <aside className="w-full flex flex-col gap-4 xl:w-[40%]">
                 <div className="w-full rounded-lg bg-white">
