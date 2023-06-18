@@ -9,10 +9,6 @@ const Navbar = () => {
     const [menuClicked, setMenuClicked] = useState(null);
     const [data, setData] = useState()
     const fetchMenuLink = async () => {
-        if (Cookies.get('menuLinks')) {
-            setData(JSON.parse(Cookies.get('menuLinks')))
-            console.log('setting link from cookie')
-        } else {
             const response = await fetch('/api/setting/menulink/fetch');
             let json = await response.json();
             if (json.success) {
@@ -28,11 +24,7 @@ const Navbar = () => {
                     }
                 }
                 setData(combinedMenuLinks);
-                console.log('setting link from api')
-                Cookies.set('menuLinks', JSON.stringify(combinedMenuLinks), { expires: new Date(0) });
-                console.log(Cookies.get('menuLinks'))
             }
-        }
     }
     useEffect(() => {
         fetchMenuLink();

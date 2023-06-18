@@ -7,13 +7,13 @@ const Footer = () => {
         <>
             <footer className="relative box-border z-10 bg-white pt-20 pb-10 lg:pt-[120px] lg:pb-20">
                 <div className="container mx-auto">
-                    <div className=" flex flex-wrap">
+                    <div className=" flex flex-wrap md:-mt-20 -mt-10">
                         <div className="w-full px-4 sm:w-2/3 lg:w-3/12">
                             <div className="mb-10 w-full">
                                 <a href="#" className="mb-6 inline-block max-w-[160px]">
                                     <h2 className="font-bold text-xl">Holidays</h2>
                                 </a>
-                                <p className="text-body-color mb-7 text-base">
+                                <p className="text-body-color mb-7 text-sm">
                                    Lorem ipsum dolor sit amet consectetur adipisicing elit. Labore illo ullam magnam inventore architecto aspernatur eligendi.
                                 </p>
                                 <p className="text-dark flex items-center text-sm font-medium">
@@ -39,24 +39,24 @@ const Footer = () => {
                         <div className="w-full px-4 sm:w-1/2 lg:w-2/12">
                             <div className="mb-10 w-full">
                                 <h4 className="text-dark mb-5 text-lg font-semibold">Resources</h4>
-                                <ul>
+                                <ul className='text-sm'>
                                     <li>
-                                        <a href="#" className="text-body-color hover:text-primary mb-2 inline-block text-base leading-loose">
+                                        <a href="#" className="text-body-color hover:text-primary mb-2 inline-block leading-loose">
                                             Tour
                                         </a>
                                     </li>
                                     <li>
-                                        <a href="#" className="text-body-color hover:text-primary mb-2 inline-block text-base leading-loose">
+                                        <a href="#" className="text-body-color hover:text-primary mb-2 inline-block leading-loose">
                                             Our Products
                                         </a>
                                     </li>
                                     <li>
-                                        <a href="#" className="text-body-color hover:text-primary mb-2 inline-block text-base leading-loose">
+                                        <a href="#" className="text-body-color hover:text-primary mb-2 inline-block leading-loose">
                                             User Flow
                                         </a>
                                     </li>
                                     <li>
-                                        <a href="#" className="text-body-color hover:text-primary mb-2 inline-block text-base leading-loose">
+                                        <a href="#" className="text-body-color hover:text-primary mb-2 inline-block leading-loose">
                                             User Strategy
                                         </a>
                                     </li>
@@ -66,24 +66,24 @@ const Footer = () => {
                         <div className="w-full px-4 sm:w-1/2 lg:w-2/12">
                             <div className="mb-10 w-full">
                                 <h4 className="text-dark mb-5 text-lg font-semibold">Company</h4>
-                                <ul>
+                                <ul className='text-sm'>
                                     <li>
-                                        <a href="#" className="text-body-color hover:text-primary mb-2 inline-block text-base leading-loose">
+                                        <a href="#" className="text-body-color hover:text-primary mb-2 inline-block leading-loose">
                                             About 
                                         </a>
                                     </li>
                                     <li>
-                                        <a href="#" className="text-body-color hover:text-primary mb-2 inline-block text-base leading-loose">
+                                        <a href="#" className="text-body-color hover:text-primary mb-2 inline-block leading-loose">
                                             Contact &amp; Support
                                         </a>
                                     </li>
                                     <li>
-                                        <a href="#" className="text-body-color hover:text-primary mb-2 inline-block text-base leading-loose">
+                                        <a href="#" className="text-body-color hover:text-primary mb-2 inline-block leading-loose">
                                             Success History
                                         </a>
                                     </li>
                                     <li>
-                                        <a href="#" className="text-body-color hover:text-primary mb-2 inline-block text-base leading-loose">
+                                        <a href="#" className="text-body-color hover:text-primary mb-2 inline-block leading-loose">
                                             Setting &amp; Privacy
                                         </a>
                                     </li>
@@ -93,24 +93,24 @@ const Footer = () => {
                         <div className="w-full px-4 sm:w-1/2 lg:w-2/12">
                             <div className="mb-10 w-full">
                                 <h4 className="text-dark mb-5 text-lg font-semibold">Quick Links</h4>
-                                <ul>
+                                <ul className='text-sm'>
                                     <li>
-                                        <a href="#" className="text-body-color hover:text-primary mb-2 inline-block text-base leading-loose">
+                                        <a href="#" className="text-body-color hover:text-primary mb-2 inline-block leading-loose">
                                             Premium Support
                                         </a>
                                     </li>
                                     <li>
-                                        <a href="#" className="text-body-color hover:text-primary mb-2 inline-block text-base leading-loose">
+                                        <a href="#" className="text-body-color hover:text-primary mb-2 inline-block leading-loose">
                                             Our Services
                                         </a>
                                     </li>
                                     <li>
-                                        <a href="#" className="text-body-color hover:text-primary mb-2 inline-block text-base leading-loose">
+                                        <a href="#" className="text-body-color hover:text-primary mb-2 inline-block leading-loose">
                                             Know Our Team
                                         </a>
                                     </li>
                                     <li>
-                                        <a href="#" className="text-body-color hover:text-primary mb-2 inline-block text-base leading-loose">
+                                        <a href="#" className="text-body-color hover:text-primary mb-2 inline-block leading-loose">
                                             Download App
                                         </a>
                                     </li>
@@ -135,7 +135,7 @@ const Footer = () => {
                                     </a>
                                     
                                 </div>
-                                <p className="text-body-color text-base">© 2023 Holidays</p>
+                                <p className="text-body-color text-sm">© 2023 Holidays</p>
                             </div>
                         </div>
                     </div>
