@@ -1,7 +1,7 @@
 import Navbar from '../../../components/blog/Navbar';
 import React, { useEffect } from 'react';
 import Footer from '../../../components/Footer';
-import ArticleComponent from '../../../components/blog/article/ArticleComponent';
+import Article from '../../../components/blog/article/Article';
 import Head from 'next/head';
 
 const ArticlePage = ({ data, slug }) => {
