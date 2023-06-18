@@ -69,16 +69,16 @@ const Body = ({ data }) => {
             <Toaster position='top-right' />
             <div className="w-full rounded-lg p-4">
                 <nav className="text-sm text-cyan-500">
-                    <ol className='list-none p-0 inline-flex gap-1'>
+                    <ol className='list-none p-0 text-black inline-flex gap-1'>
                         <li className="flex gap-1 items-center">
-                            <Link href={'/blog'} className='hover:text-red-600 hover:underline'>Home</Link>
+                            <Link href={'/blog'} className='hover:text-red-600 text-red-600 hover:underline'>Home</Link>
                             &gt;
                         </li>
                         {
                             data.category.split(' ').map((item, index) => (
                                 <React.Fragment key={index}>
                                     <li className="flex items-center">
-                                        <Link href={`/blog/category/${item.toLowerCase()}`} className="hover:text-red-600 hover:underline">
+                                        <Link href={`/blog/category/${item.toLowerCase()}`} className="hover:text-red-700 text-red-600 hover:underline">
                                             {item.charAt(0).toUpperCase() + item.slice(1).toLowerCase()}
                                         </Link>
                                     </li>

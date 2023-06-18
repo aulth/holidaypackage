@@ -15,9 +15,9 @@ const CommentItem = ({data}) => {
                 <img src={`https://ui-avatars.com/api/?background=random&name=${data?.name.split(" ").join("+")}`} className='w-full rounded-full aspect-square' alt="" />
             </div>
             <div className="w-full flex flex-col items-start justify-end  ">
-                <h3 className="font-semibold -mt-1">{data?.name}</h3>
-                <span className='text-sm'>{data && getFormattedDate(data.createdAt)}</span>
-                <p>{data.remark}</p>
+                <h3 className="font-semibold -mt-1 text-sm">{data?.name}</h3>
+                <span className='text-[12px]'>{data && getFormattedDate(data.createdAt)}</span>
+                <p className='text-sm'>{data.remark}</p>
             </div>
         </div>
     )
