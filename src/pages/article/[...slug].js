@@ -24,7 +24,7 @@ const page = ({ data, link }) => {
                 <div className="overflow-x-hidden h-screen relative ">
                     <Navbar />
                     {/* Tour Details Menu  */}
-                    <ArticleComponent data={data} />
+                    {/* <ArticleComponent data={data} /> */}
                 </div>
             }
             {
