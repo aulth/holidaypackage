@@ -86,7 +86,7 @@ const Popular = () => {
                                 <img src={data.cover} className='w-full h-full object-cover rounded-lg' alt="" />
                             </div>
                             <div className="flex flex-col">
-                                <Link href={`/blog/${data?.link}`} className="font-semibold h-16 overflow-hidden leading-5 hover:text-red-500">{data && data?.title}</Link>
+                                <Link href={`/blog/article/${data?.link}`} className="font-semibold h-16 overflow-hidden leading-5 hover:text-red-500">{data && data?.title}</Link>
                                 <span className='text-sm'>{getFormattedDate(data && data?.createdAt)}</span>
                             </div>
                         </div>

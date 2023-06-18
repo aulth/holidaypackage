@@ -4,16 +4,17 @@ import Link from 'next/link';
 const YouMightLike = ({ category }) => {
     const [data, setData] = useState();
     const fetchData = async () => {
-        const response = await fetch(process.env.NODE_ENV == 'production' ? 'https://mohd-usman.vercel.app/api/blog/fetchcategory' : 'http://localhost:3000/api/blog/fetchcategory', {
+        const response = await fetch('/api/blog/fetchcategory', {
             method: 'POST',
             headers: {
                 'content-type': 'application/json',
             },
-            body: JSON.stringify({ category: category })
+            body: JSON.stringify({ category: category.toLowerCase().split(', ')[1] })
         })
         var json = await response.json();
+        console.log(json)
         if(json.success){
-            json = json.article;
+            json = json.articles;
             json?.sort((a, b) => b.views - a.views);
             setData(json);
         }

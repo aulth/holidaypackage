@@ -20,7 +20,7 @@ const Recent = ({ data }) => {
                         <img src={data[0].cover} className='h-full w-full object-cover rounded-lg absolute top-0' alt="" />
                         <div className="w-full rounded-lg h-60  xl:h-72 absolute top-0  bg-gradient-to-tr from-gray-700 to-transparent"></div>
                         <div className="w-full p-4 z-10 text-white">
-                            <Link href={`/blog/category/${data[0].category}`} className="text-sm">{data[0]?.category[0].toUpperCase() + data[0]?.category.slice(1).toLowerCase()}</Link>
+                            <Link href={`/blog/category/${data[0].category}`} className="text-sm">{data[0]?.category.split(', ')[0][0].toUpperCase() + data[0]?.category.split(', ')[0].slice(1).toLowerCase()}</Link>
                             <Link href={`/blog/article/${data[0].link}`} ><h2 className="font-bold text-xl">{data[0]?.title.slice(0, 121)} {data[0].title.length > 121 ? ".." : ""}</h2></Link>
                             <span className='text-sm'>{getFormattedDate(data[0]?.createdAt)}</span>
                         </div>

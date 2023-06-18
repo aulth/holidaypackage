@@ -15,55 +15,31 @@ const Body = ({ data }) => {
     useEffect(() => {
         if (typeof window != undefined) {
             document.querySelector('.body').innerHTML = data.content;
-            getViewer(data.link);
         }
     }, [data])
     const shareData = {
         title: data.title,
         text: data.content.slice(0, 150).replace(/<[^>]+>/g, '') + "..",
-        url: `https://mohd-usman.vercel.app/blog/article/${data.link}`
-    }
+        url: `${process.env.NEXT_PUBLIC_DOMAIN}/blog/article/${data.link}`
+    };
+
     const sharePost = async () => {
         try {
             if (!navigator.canShare) {
-                output.textContent = `Your browser doesn't support the Web Share API.`
-                return
+                toast.error(`Your browser doesn't support the Web Share API.`);
+                return;
             }
             await navigator.share(shareData);
         } catch (err) {
-            toast.error(err)
-            return;
+            // Handle cancellation or other errors
+            if (err.name === 'AbortError') {
+                toast.info('Share action cancelled.');
+            } else {
+                toast.error('Failed to share post.');
+            }
         }
-    }
-    const getViewer = async (link) => {
-        // Get device information
-        console.log('getViewer')
-        const deviceInfo = {
-            userAgent: navigator.userAgent,
-            platform: navigator.platform,
-            vendor: navigator.vendor,
-            language: navigator.language
-        };
+    };
 
-        // Get carrier name (if available)
-        let carrierName = null;
-        const connection = navigator.connection || navigator.mozConnection || navigator.webkitConnection;
-        if (connection && connection.type === 'cellular') {
-            carrierName = connection.effectiveType;
-        }
-        const data = {
-            deviceInfo,
-            carrierName,
-        }
-        const response = await fetch('/api/blog/getviewer', {
-            method: 'POST',
-            headers: {
-                'content-type': 'application/json'
-            },
-            body: JSON.stringify({ data: data, link: link })
-        });
-        const json = await response.json();
-    }
     return (
         <>
             <Toaster position='top-right' />
