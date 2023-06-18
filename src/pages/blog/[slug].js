@@ -4,6 +4,7 @@ import PostComment from '../../../components/blog/article/PostComment'
 import Comment from '../../../components/blog/article/Comment'
 import Popular from '../../../components/blog/home/Popular'
 import Subscribe from '../../../components/blog/home/Subscribe'
+import Body from '../../../components/blog/article/Body'
 const Page = ({ data, slug }) => {
     return (
         <>
@@ -11,9 +12,9 @@ const Page = ({ data, slug }) => {
             {data && JSON.stringify(data)}
             <div className="container m-auto flex gap-4 flex-col xl:flex-row xl:px-16 px-4 py-4">
                 <div className="w-full flex flex-col gap-4 xl:w-[60%]">
-                    {/* <div className="w-full rounded-lg bg-white ">
+                    <div className="w-full rounded-lg bg-white ">
                         <Body data={data} />
-                    </div> */}
+                    </div>
                     {/* <div className="w-full rounded-lg bg-white ">
                         <YouMightLike category={data.category} />
                     </div> */}
