@@ -3,10 +3,7 @@ import { IoIosArrowRoundForward } from 'react-icons/io'
 import Link from 'next/link';
 import { Skeleton } from '@mui/material';
 const Widget1 = ({ data, title }) => {
-    const [story, setStory] = useState();
-    useEffect(() => {
-        setStory(data.filter(item => item.category.toLowerCase().includes(title.toLowerCase())));
-    }, [])
+    const [story, setStory] = useState(data);
 console.log('widget 1')
     console.log(story)
     const getFormattedDate = (str) => {
